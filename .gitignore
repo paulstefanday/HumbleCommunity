@@ -5,4 +5,4 @@ composer.phar
 .env.php
 .DS_Store
 Thumbs.db
-/app/storage/logs/*
+/app/storage/logs/laravel.log
