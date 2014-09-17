@@ -24,6 +24,6 @@ Route::post('auth/linkedin', 'AuthController@linkedin');
 Route::get('auth/twitter', 'AuthController@twitter');
 Route::get('auth/unlink/{provider}', array('before' => 'auth', 'uses' => 'AuthController@unlink'));
 
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
 
-// Route::get('{angular?}', [ 'uses' => 'HomeController@index' ])->where('angular', '.*');
+Route::get('{angular?}', [ 'uses' => 'HomeController@index' ])->where('angular', '.*');
