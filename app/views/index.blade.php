@@ -15,7 +15,7 @@
 <body>
 <div ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top">
   <div class="navbar-header">
-    <a class="navbar-brand" href="/"><i class="ion-ios7-pulse-strong"></i> Satellizer</a>
+    <a class="navbar-brand" href="/"><i class="ion-ios7-pulse-strong"></i> Compassionate Careers</a>
   </div>
   <ul class="nav navbar-nav">
     <li><a href="/">Home</a></li>
@@ -32,10 +32,10 @@
 
 <div ui-view class="fadeZoom"></div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-messages.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-resource.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-animate.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.25/angular.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.25/angular-messages.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.25/angular-resource.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.25/angular-animate.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
 <script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.min.js"></script>
 <script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.tpl.min.js"></script>
