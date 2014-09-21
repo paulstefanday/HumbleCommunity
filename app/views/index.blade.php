@@ -17,7 +17,7 @@
   <div class="navbar-header">
     <a class="navbar-brand" href="/"> Compassionate Careers</a>
   </div>
-  <ul class="nav navbar-nav">
+  <ul class="nav navbar-nav pull-right">
     <li><a href="/">Home</a></li>
     <li ng-if="isAuthenticated()"><a href="/#/profile">Profile</a></li>
   </ul>
@@ -29,7 +29,7 @@
     <li><a href="/#/logout">Logout</a></li>
   </ul>
 </div>
-
+ 
 <div ui-view class="fadeZoom"></div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular.js"></script>
@@ -48,6 +48,8 @@
 <script src="/controllers/logout.js"></script>
 <script src="/controllers/profile.js"></script>
 <script src="/controllers/navbar.js"></script>
+<script src="/controllers/home.js"></script>
 <script src="/services/account.js"></script>
+
 </body>
 </html>
