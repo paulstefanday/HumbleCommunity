@@ -16,12 +16,12 @@ height: 348px;
 	padding-top:10px;
 }
 
-.panel {
+#home .panel {
 	height: 311px;
 	position:relative;
 }
 
-.panel a {
+#home .panel a {
   font-family: 'Montserrat', sans-serif;
 position: absolute;
 bottom: 0;
@@ -40,7 +40,7 @@ font-weight:bold;
 border-top:1px solid rgba(0,0,0,0.2);
 }
 
-.panel span {
+#home .panel span {
 	font-size:11px;
 	width:100%;
 	margin-bottom:4px;float:left;
