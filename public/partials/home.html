@@ -37,13 +37,14 @@
       <div class="panel panel-default">
         <div class="panel-body">
               <h4>{{job.title | noHTML }}</h4>
-              <p><i class="ion-ribbon-b"></i> {{job.category.label | noHTML }}</p>
-              <p ng-show="job.company.display_name"><i class="ion-person-stalker"></i> {{job.company.display_name }}</p>
+              <span><i class="ion-ribbon-b"></i> {{job.category.label | noHTML }}</span>
+              <span ng-show="job.company.display_name"><i class="ion-person-stalker"></i> {{job.company.display_name }}</span>
               <!-- <p>{{job.salary_is_predicted }}</p> -->
-              <p ng-show="job.location.display_name"><i class="ion-location"></i> {{job.location.display_name }}</p>
+              <span ng-show="job.location.display_name"><i class="ion-location"></i> {{job.location.display_name }}</span>
               <p>{{job.description | noHTML  | limitTo: 100  }}</p>
-             <a class="btn btn-primary btn-block" href="{{job.redirect_url }}">View details »</a>
+             
         </div>
+        <a class="btn btn-primary btn-block" href="{{job.redirect_url }}">View details »</a>
       </div>
     </div>
   </div>
