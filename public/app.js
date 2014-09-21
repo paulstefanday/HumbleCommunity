@@ -1,4 +1,4 @@
-angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer'])
+angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer', 'ngSanitize'])
   .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
 
 $httpProvider.interceptors.push('jsonpInterceptor');

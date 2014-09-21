@@ -18,14 +18,14 @@
     <a class="navbar-brand" href="/"> Compassionate Careers</a>
   </div>
   <ul class="nav navbar-nav pull-right">
-    <li><a href="/">Home</a></li>
-    <li ng-if="isAuthenticated()"><a href="/#/profile">Profile</a></li>
+     <li><a href="/">Add Job</a></li>
   </ul>
   <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">
     <li><a href="/#/login">Login</a></li>
     <li><a href="/#/signup">Sign up</a></li>
   </ul>
   <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
+    <li ng-if="isAuthenticated()"><a href="/#/profile">Profile</a></li>
     <li><a href="/#/logout">Logout</a></li>
   </ul>
 </div>
@@ -36,6 +36,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-messages.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-resource.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-animate.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-sanitize.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
 <script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.min.js"></script>
 <script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.tpl.min.js"></script>
@@ -49,6 +50,7 @@
 <script src="/controllers/profile.js"></script>
 <script src="/controllers/navbar.js"></script>
 <script src="/controllers/home.js"></script>
+<script src="/filters/nohtml.js"></script>
 <script src="/services/account.js"></script>
 <script src="/services/jsonp.js"></script>
 
