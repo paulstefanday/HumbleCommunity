@@ -1,5 +1,8 @@
 angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer'])
-  .config(function($stateProvider, $urlRouterProvider, $authProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
+
+$httpProvider.interceptors.push('jsonpInterceptor');
+
     $stateProvider
       .state('home', {
         url: '/',

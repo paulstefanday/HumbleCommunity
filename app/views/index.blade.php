@@ -50,6 +50,7 @@
 <script src="/controllers/navbar.js"></script>
 <script src="/controllers/home.js"></script>
 <script src="/services/account.js"></script>
+<script src="/services/jsonp.js"></script>
 
 </body>
 </html>
