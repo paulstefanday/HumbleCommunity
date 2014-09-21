@@ -6,11 +6,10 @@
   <title>Compassionate Careers</title>
   <link href="favicon.png" rel="shortcut icon">
   <link href='https://fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/animatecss/3.2.0/animate.css" rel="stylesheet">
-  <link href="/stylesheets/style.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top">
@@ -41,6 +40,7 @@
 <script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.min.js"></script>
 <script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.tpl.min.js"></script>
 <script src="/vendor/satellizer.js"></script>
+<script src="/vendor/loading-bar.js"></script>
 
 <script src="/app.js"></script>
 <script src="/directives/passwordStrength.js"></script>

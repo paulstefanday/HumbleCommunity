@@ -1,7 +1,7 @@
     <section id="top" >
         <div class="hero-parallax parallax" style="background-image: url(file://localhost/Users/paulday/Downloads/themeforest-8641124-sublime-web-application-admin-dashboard/Frontend/img/cover1.jpg); background-position: 50% -1px;"></div>
         <div class="overlay overlay-colored-9"></div>
-        <div class="container" style="height: 348px;">
+        <div class="container">
             <div class="hero-container" style="transform: translateY(2px);">
                 <h1 class="hero-title animated fadeInLeft done" data-animation="fadeInLeft">Job search <span style='color: #C1DCFF;'>For people who care</span></h1>
                 <div class="hero-sub-title animated fadeInRight done" data-animation="fadeInRight">
@@ -10,7 +10,7 @@
                 <div class="call-to-action heading-font">
                     <form class="form-inline" role="form" ng-submit="search()" novalidate>
                       <div class="form-group">
-                        <input ng-model="keyword" type="email" class="form-control"   placeholder="Type a keyword">
+                        <input ng-model="keyword"  class="form-control"   placeholder="Type a keyword">
                       </div>
                       <div class="form-group">
                         <select class="form-control">
@@ -36,15 +36,13 @@
     <div class="col-sm-3" ng-repeat="job in jobs">
       <div class="panel panel-default">
         <div class="panel-body">
-              <h3>{{job.title | noHTML }}</h3>
-              <p>{{job.category.label | noHTML }}</p>
-              <p>{{job.company.display_name | noHTML }}</p>
-              <p>{{job.salary_is_predicted | noHTML }}</p>
-              <p>{{job.location.display_name | noHTML }}</p>
-              <p>{{job.salary_is_predicted | noHTML }}</p>
-              <p>{{job.redirect_url | noHTML }}</p>
-              <p>{{job.description | noHTML }}</p>
-              <p><a class="btn btn-primary" href="#">View details »</a></p>
+              <h4>{{job.title | noHTML }}</h4>
+              <p><i class="ion-ribbon-b"></i> {{job.category.label | noHTML }}</p>
+              <p ng-show="job.company.display_name"><i class="ion-person-stalker"></i> {{job.company.display_name }}</p>
+              <!-- <p>{{job.salary_is_predicted }}</p> -->
+              <p ng-show="job.location.display_name"><i class="ion-location"></i> {{job.location.display_name }}</p>
+              <p>{{job.description | noHTML  | limitTo: 100  }}</p>
+             <a class="btn btn-primary btn-block" href="{{job.redirect_url }}">View details »</a>
         </div>
       </div>
     </div>
