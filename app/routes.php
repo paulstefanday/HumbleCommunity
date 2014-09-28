@@ -24,6 +24,9 @@ Route::post('auth/linkedin', 'AuthController@linkedin');
 Route::get('auth/twitter', 'AuthController@twitter');
 Route::get('auth/unlink/{provider}', array('before' => 'auth', 'uses' => 'AuthController@unlink'));
 
-// Route::get('/', 'HomeController@index');
+Route::group(['prefix' => 'api/v1'], function() { //, 'before' => 'auth'
+	Route::resource('jobs', 'JobsController');
+	Route::resource('categories', 'CategoriesController');
+});
 
 Route::get('{angular?}', [ 'uses' => 'HomeController@index' ])->where('angular', '.*');

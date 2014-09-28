@@ -421,6 +421,29 @@ a {
   float: left;
 }
 
+#content_box {
+  float: left;
+  width: 25%;
+  height: 90%;
+  position: absolute;
+  top: 0;
+  left: 27%;
+  overflow-y: scroll;
+  margin-top: 5%;
+}
+
+#preview_box {
+  float: left;
+  width: 46%;
+  height: 90%;
+  position: absolute;
+  top: 0;
+  left: 53%;
+  overflow-y: scroll;
+  background-color: #000;
+  margin-top: 5%;
+}
+
 /*! 
  * angular-loading-bar v0.5.0
  * https://chieffancypants.github.io/angular-loading-bar

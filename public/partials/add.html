@@ -1,0 +1,63 @@
+<div class="container-fluid">
+
+  <div style="float:left;width:25%;height:100%;position:absolute;">
+    <div class="panel panel-default">
+      <div class="panel-heading">Search for jobs to add</div>
+      <div class="panel-body">
+                     <form class="form" role="form" ng-submit="search()" novalidate>
+                      <div class="form-group">
+                        <input ng-model="keyword"  class="form-control"   placeholder="Type a keyword">
+                      </div>
+                      <button type="submit"  class="btn btn-default btn-block">Find Jobs</button>
+                    </form>
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Add a job</div>
+    <div class="panel-body">
+      <form method="post" ng-submit="updateProfile()">
+        <div class="form-group">
+          <!-- <label class="control-label"><i class="ion-person"></i> Heading</label> -->
+          <input type="text" class="form-control" ng-model="job.heading" placeholder="Heading" />
+        </div>
+        <div class="form-group">
+          <!-- <label class="control-label"><i class="ion-at"></i> Description</label> -->
+          <textarea class="form-control" ng-model="job.description" placeholder="Description" ></textarea>
+        </div>
+        <div class="form-group">
+          <!-- <label class="control-label"><i class="ion-at"></i> Salary</label> -->
+          <input type="text" class="form-control" ng-model="job.salary" placeholder="Salary" />
+        </div>
+        <div class="form-group">
+          <!-- <label class="control-label"><i class="ion-at"></i> Location</label> -->
+          <input type="text" class="form-control" ng-model="job.location" placeholder="Location" />
+        </div>
+        <button class="btn btn-lg btn-success btn-block">Add Job</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <div id="content_box">
+
+      <div class="panel panel-default" ng-repeat="job in jobs">
+        <div class="panel-body">
+              <h4>{{job.title | noHTML }}</h4>
+              <span><i class="ion-ribbon-b"></i> {{job.category.label | noHTML }}</span>
+              <span ng-show="job.company.display_name"><i class="ion-person-stalker"></i> {{job.company.display_name }}</span>
+              <!-- <p>{{job.salary_is_predicted }}</p> -->
+              <span ng-show="job.location.display_name"><i class="ion-location"></i> {{job.location.display_name }}</span>
+              <p>{{job.description | noHTML  | limitTo: 100  }}</p>
+             
+        </div>
+        <a class="btn btn-primary btn-block" ng-click="viewJob( job )">View details »</a>
+      </div>
+
+
+  </div>
+  <iframe ng-src="{{currentJob}}" id="preview_box">
+
+  </div>
+</div>

@@ -45,3 +45,11 @@ border-top:1px solid rgba(0,0,0,0.2);
 	width:100%;
 	margin-bottom:4px;float:left;
 }
+
+#content_box {
+  float:left;width:25%;height:90%;position:absolute;top:0;left:27%;overflow-y:scroll;margin-top:5%;
+}
+
+#preview_box {
+float:left;width:46%;height:90%;position:absolute;top:0;left:53%;overflow-y:scroll;background-color:#000;margin-top:5%;
+}

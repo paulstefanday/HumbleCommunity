@@ -16,14 +16,15 @@
   <div class="navbar-header">
     <a class="navbar-brand" href="/"> Compassionate Careers</a>
   </div>
-  <ul class="nav navbar-nav pull-right">
+<!--   <ul class="nav navbar-nav pull-right">
      <li><a href="/">Add Job</a></li>
-  </ul>
+  </ul> -->
   <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">
     <li><a href="/#/login">Login</a></li>
     <li><a href="/#/signup">Sign up</a></li>
   </ul>
   <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
+    <li ng-if="isAuthenticated()"><a href="/#/job/add">Add a job</a></li>
     <li ng-if="isAuthenticated()"><a href="/#/profile">Profile</a></li>
     <li><a href="/#/logout">Logout</a></li>
   </ul>
@@ -47,11 +48,15 @@
 <script src="/controllers/login.js"></script>
 <script src="/controllers/signup.js"></script>
 <script src="/controllers/logout.js"></script>
+<script src="/controllers/addjob.js"></script>
+<script src="/controllers/addcategory.js"></script>
 <script src="/controllers/profile.js"></script>
 <script src="/controllers/navbar.js"></script>
 <script src="/controllers/home.js"></script>
 <script src="/filters/nohtml.js"></script>
 <script src="/services/account.js"></script>
+<script src="/services/job.js"></script>
+<script src="/services/category.js"></script>
 <script src="/services/jsonp.js"></script>
 
 </body>

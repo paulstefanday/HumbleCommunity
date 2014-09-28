@@ -1,58 +1,55 @@
 <?php
 
-class JobsController extends \BaseController {
+class CategoryController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /jobs
+	 * GET /category
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$jobs = Job::all()->toArray();
-		return Response::json(['data' => $jobs ], 200);
+		//
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /jobs/create
+	 * GET /category/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-
+		//
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /jobs
+	 * POST /category
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		$job = DB::table('jobs')->insert( Input::all() );
-		return Response::json(['data' => $job ], 200);
+		//
 	}
 
 	/**
 	 * Display the specified resource.
-	 * GET /jobs/{id}
+	 * GET /category/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-		$job = Job::find( $id );
-		return Response::json(['data' => $job ], 200);
+		//
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /jobs/{id}/edit
+	 * GET /category/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -64,29 +61,26 @@ class JobsController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /jobs/{id}
+	 * PUT /category/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-		$job = DB::table('jobs')->where('id', $id)->update(Input::all());
-		return Response::json(['data' => $job ], 200);
+		//
 	}
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /jobs/{id}
+	 * DELETE /category/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		$job = Job::find($id);
-		$result = $job->delete();
-		return Response::json(['data' => $result ], 200);
+		//
 	}
 
 }

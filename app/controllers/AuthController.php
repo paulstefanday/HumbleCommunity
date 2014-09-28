@@ -185,7 +185,7 @@ class AuthController extends \BaseController {
     public function linkedin()
     {
         $accessTokenUrl = 'https://www.linkedin.com/uas/oauth2/accessToken';
-        $peopleApiUrl = 'https://api.linkedin.com/v1/people/~:(id,first-name,last-name)';
+        $peopleApiUrl = 'https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address)';
 
         $params = array(
             'code' => Input::get('code'),

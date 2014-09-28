@@ -35,7 +35,43 @@ $httpProvider.interceptors.push('jsonpInterceptor');
             }
           }]
         }
-      });
+      })   
+      .state('addjob', {
+        url: '/job/add',
+        templateUrl: 'partials/addjob.html',
+        controller: 'AddJobCtrl',
+        resolve: {
+          authenticated: ['$location', '$auth', function($location, $auth) {
+            if (!$auth.isAuthenticated()) {
+              return $location.path('/login');
+            }
+          }]
+        }
+      })
+      .state('addcategory', {
+        url: '/category/add',
+        templateUrl: 'partials/addcategory.html',
+        controller: 'AddCategoryCtrl',
+        resolve: {
+          authenticated: ['$location', '$auth', function($location, $auth) {
+            if (!$auth.isAuthenticated()) {
+              return $location.path('/login');
+            }
+          }]
+        }
+      });       
+      // .state('add', {
+      //   url: '/add',
+      //   templateUrl: 'partials/add.html',
+      //   controller: 'AddCtrl',
+      //   resolve: {
+      //     authenticated: ['$location', '$auth', function($location, $auth) {
+      //       if (!$auth.isAuthenticated()) {
+      //         return $location.path('/login');
+      //       }
+      //     }]
+      //   }
+      // });
 
     $urlRouterProvider.otherwise('/');
 
