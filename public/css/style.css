@@ -444,6 +444,14 @@ a {
   margin-top: 5%;
 }
 
+.job h3 {
+  margin: 6px 4px 2px;
+}
+
+.job a {
+  margin-left: 5px;
+}
+
 /*! 
  * angular-loading-bar v0.5.0
  * https://chieffancypants.github.io/angular-loading-bar
