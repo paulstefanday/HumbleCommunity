@@ -24,7 +24,7 @@
     <li><a href="/#/signup">Sign up</a></li>
   </ul>
   <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
-    <li ng-if="isAuthenticated()"><a href="/#/job/add">Add a job</a></li>
+    <li ng-if="isAuthenticated()"><a href="/#/jobs/add">Add a job</a></li>
     <li ng-if="isAuthenticated()"><a href="/#/profile">Profile</a></li>
     <li><a href="/#/logout">Logout</a></li>
   </ul>
@@ -49,6 +49,7 @@
 <script src="/controllers/signup.js"></script>
 <script src="/controllers/logout.js"></script>
 <script src="/controllers/addjob.js"></script>
+<script src="/controllers/job.js"></script>
 <script src="/controllers/addcategory.js"></script>
 <script src="/controllers/profile.js"></script>
 <script src="/controllers/navbar.js"></script>

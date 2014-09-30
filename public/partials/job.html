@@ -3,7 +3,7 @@
 <div class="row">
 <div class="col-sm-3">
   <div class="panel panel-default">
-    <div class="panel-heading">Add a job</div>
+    <div class="panel-heading">Job: {{ job.id }}</div>
     <div class="panel-body">
       <form method="post" ng-submit="addJob()">
         <div class="form-group">
@@ -36,21 +36,5 @@
   </div>
 </div>
 
-<div class="col-sm-9">
-<div class="row">
-<div class="col-sm-3" ng-repeat="job in jobs">
-        <div class="panel panel-default" >
-        <div class="panel-body">
-              <h4>{{job.heading }}</h4>
-              <span> {{ job.created_at }} - {{job.end_date}}</span>
-              <span>${{job.salary_min }} - {{job.salary_max }}</span>
-              <span><i class="ion-location"></i> {{job.location }}</span>
-              <p>{{job.description | noHTML  | limitTo: 100  }}</p>
-             
-        </div>
-        <a class="btn btn-success btn-block" href="/#/job/{{ job.id }}">Edit</a>
-        <a class="btn btn-danger btn-block" ng-click="deleteJob($index, job.id)">Delete</a>
-      </div>
-    </div></div>
-        </div></div>
+</div>
 </div>

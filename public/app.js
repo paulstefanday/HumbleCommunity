@@ -37,7 +37,7 @@ $httpProvider.interceptors.push('jsonpInterceptor');
         }
       })   
       .state('addjob', {
-        url: '/job/add',
+        url: '/jobs/add',
         templateUrl: 'partials/addjob.html',
         controller: 'AddJobCtrl',
         resolve: {
@@ -48,8 +48,20 @@ $httpProvider.interceptors.push('jsonpInterceptor');
           }]
         }
       })
+      .state('job', {
+        url: '/job/:id',
+        templateUrl: 'partials/job.html',
+        controller: 'JobCtrl',
+        resolve: {
+          authenticated: ['$location', '$auth', function($location, $auth) {
+            if (!$auth.isAuthenticated()) {
+              return $location.path('/login');
+            }
+          }]
+        }
+      })
       .state('addcategory', {
-        url: '/category/add',
+        url: '/categories/add',
         templateUrl: 'partials/addcategory.html',
         controller: 'AddCategoryCtrl',
         resolve: {
