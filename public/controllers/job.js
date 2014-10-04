@@ -1,5 +1,5 @@
 angular.module('MyApp')
-  .controller('JobCtrl', function($scope, $stateParams, $auth, $alert, Account, Job) {
+  .controller('JobCtrl', function($scope, $stateParams, $auth, $alert, Account, Job ) {
 
 	$scope.job = {};
 

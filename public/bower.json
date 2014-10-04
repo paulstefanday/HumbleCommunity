@@ -1,0 +1,31 @@
+{
+  "name": "compassionatecareers",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paulstefanday/cc",
+  "authors": [
+    "Paul Day <paul@chuffed.prg>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular-animate": "~1.3.0-rc.4",
+    "angular-motion": "~0.3.3",
+    "angular-sanitize": "~1.3.0-rc.4",
+    "angular-strap": "~2.1.1",
+    "angular-bootstrap": "~0.11.2",
+    "angular-messages": "~1.3.0-rc.4",
+    "angular-resource": "~1.3.0-rc.4",
+    "angular": "~1.3.0-rc.4",
+    "angular-ui-router": "~0.2.11",
+    "ionicons": "~1.5.2",
+    "bootstrap": "~3.2.0",
+    "animate.css": "~3.2.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

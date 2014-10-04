@@ -72,18 +72,6 @@ $httpProvider.interceptors.push('jsonpInterceptor');
           }]
         }
       });       
-      // .state('add', {
-      //   url: '/add',
-      //   templateUrl: 'partials/add.html',
-      //   controller: 'AddCtrl',
-      //   resolve: {
-      //     authenticated: ['$location', '$auth', function($location, $auth) {
-      //       if (!$auth.isAuthenticated()) {
-      //         return $location.path('/login');
-      //       }
-      //     }]
-      //   }
-      // });
 
     $urlRouterProvider.otherwise('/');
 

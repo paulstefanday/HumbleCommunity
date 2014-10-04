@@ -5,31 +5,8 @@
         <div class="panel-heading">Add a job</div>
         <div class="panel-body">
           <form method="post" ng-submit="addJob()">
-            <div class="form-group">
-              <!-- <label class="control-label"><i class="ion-person"></i> Heading</label> -->
-              <input type="text" class="form-control" ng-model="job.heading" placeholder="Heading" />
-            </div>
-            <div class="form-group">
-              <!-- <label class="control-label"><i class="ion-at"></i> Description</label> -->
-              <textarea class="form-control" ng-model="job.description" placeholder="Description" ></textarea>
-            </div>
-            <div class="form-group">
-              <!-- <label class="control-label"><i class="ion-at"></i> Salary</label> -->
-              <input type="text" class="form-control" ng-model="job.salary_min" placeholder="Salary Min" />
-            </div>
-            <div class="form-group">
-              <!-- <label class="control-label"><i class="ion-at"></i> Salary</label> -->
-              <input type="text" class="form-control" ng-model="job.salary_max" placeholder="Salary Max" />
-            </div>
-            <div class="form-group">
-              <!-- <label class="control-label"><i class="ion-at"></i> Salary</label> -->
-              <input type="text" class="form-control" ng-model="job.end_date" placeholder="End Date" />
-            </div>
-            <div class="form-group">
-              <!-- <label class="control-label"><i class="ion-at"></i> Location</label> -->
-              <input type="text" class="form-control" ng-model="job.location" placeholder="Location" />
-            </div>
-            <button class="btn btn-lg btn-success btn-block">Add Job</button>
+            <div ng-include="'/partials/job/editform.html'"></div>
+            <button class="btn btn-lg btn-success btn-block">Add New Job</button>
           </form>
         </div>
       </div>

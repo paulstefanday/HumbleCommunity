@@ -6,9 +6,9 @@
   <title>Compassionate Careers</title>
   <link href="favicon.png" rel="shortcut icon">
   <link href='https://fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/animatecss/3.2.0/animate.css" rel="stylesheet">
+  <link href="/bower_components/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -16,9 +16,9 @@
   <div class="navbar-header">
     <a class="navbar-brand" href="/"> Compassionate Careers</a>
   </div>
-<!--   <ul class="nav navbar-nav pull-right">
-     <li><a href="/">Add Job</a></li>
-  </ul> -->
+  <ul class="nav navbar-nav pull-right"> 
+     <!-- <li><a href="/">Add Job</a></li> -->
+  </ul>
   <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">
     <li><a href="/#/login">Login</a></li>
     <li><a href="/#/signup">Sign up</a></li>
@@ -31,18 +31,19 @@
 </div>
  
 <div ui-view class="fadeZoom"></div>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-messages.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-resource.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-animate.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.13/angular-sanitize.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-<script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.min.js"></script>
-<script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.tpl.min.js"></script>
+<!-- required -->
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+<script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/bower_components/angular-strap/dist/angular-strap.min.js"></script>
+<script src="/bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
 <script src="/vendor/satellizer.js"></script>
 <script src="/vendor/loading-bar.js"></script>
 
+<!-- app -->
 <script src="/app.js"></script>
 <script src="/directives/passwordStrength.js"></script>
 <script src="/controllers/login.js"></script>
