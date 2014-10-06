@@ -9,13 +9,14 @@
             
                 
                     <form class="form-inline" id="searchForm" role="form" ng-submit="search()" novalidate>
-                      <div class="form-group">
+  <!--                     <div class="form-group">
                         <input ng-model="keyword"  class="form-control"   placeholder="Type a keyword">
+                      </div> -->
+                      <div class="form-group dropdown">
+                        <button type="button" class="btn btn-default" placeholder="Select a few categories" ng-model="selectedCategories" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="category.value as category.label for category in categories" bs-select></button>
                       </div>
                       <div class="form-group dropdown">
-                        <button type="button" class="btn btn-default" ng-model="selectedIcons" data-html="1" data-multiple="1" 
-                        data-animation="am-flip-x" ng-options="icon.value as icon.label for icon in icons" bs-select>
-                        Action <span class="caret"></span></button>
+                        <button type="button" class="btn btn-default" placeholder="Select location" ng-model="selectedLocations" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="location.value as location.label for location in locations" bs-select></button>
                       </div>
                       <button type="submit"  class="btn btn-default">Find Jobs</button>
                     </form>

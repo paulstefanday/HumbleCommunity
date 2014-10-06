@@ -1,12 +1,23 @@
 angular.module('MyApp').controller('homeCtrl', function($scope, $alert, $auth, $http, $resource, $dropdown) {
 
 $scope.jobs = {};
-$scope.icons = [
+$scope.categories = [
 	{"value":"","label":"Tech"},
 	{"value":"","label":"Campaigning"},
 	{"value":"","label":"Education"},
 	{"value":"","label":"Marketing"},
 	{"value":"","label":"Management"},
+];
+
+$scope.locations = [
+	{"value":"","label":"NSW"},
+	{"value":"","label":"ACT"},
+	{"value":"","label":"QLD"},
+	{"value":"","label":"VIC"},
+	{"value":"","label":"NT"},
+	{"value":"","label":"SA"},
+	{"value":"","label":"WA"},
+	{"value":"","label":"TAS"},
 ];
 
 
