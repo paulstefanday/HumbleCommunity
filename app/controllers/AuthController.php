@@ -44,25 +44,13 @@ class AuthController extends \BaseController {
 
     public function signup()
     {
-        $input['email'] = Input::get('email');
-        $input['displayName'] = Input::get('displayName');
-        $input['password'] = Input::get('password');
-        $rules = array('displayName' => 'required',
-                       'email' => 'required|email|unique:users,email',
-                       'password' => 'required|min:8');
-        $validator = Validator::make($input, $rules);
-        if ($validator->fails()) {
-            return Response::json(array('success'=>'false', 'error'=>$validator->messages()), 404);
-        }
-        else
-        {
-            $user = new User;
-            $user->displayName = Input::get('displayName');
-            $user->email = Input::get('email');
-            $user->password = Hash::make(Input::get('password'));
-            $user->save();
-            return Response::make(200);
-        }
+        $user = new User;
+        $user->displayName = Input::get('displayName');
+        $user->email = Input::get('email');
+        $user->password = Hash::make(Input::get('password'));
+        $user->save();
+
+        return Response::make(200);
     }
 
     public function facebook()
@@ -197,7 +185,7 @@ class AuthController extends \BaseController {
     public function linkedin()
     {
         $accessTokenUrl = 'https://www.linkedin.com/uas/oauth2/accessToken';
-        $peopleApiUrl = 'https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address)';
+        $peopleApiUrl = 'https://api.linkedin.com/v1/people/~:(id,first-name,last-name)';
 
         $params = array(
             'code' => Input::get('code'),
