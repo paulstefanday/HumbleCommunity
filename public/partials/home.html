@@ -6,17 +6,13 @@
                 <h1 class="hero-title animated fadeInLeft done" data-animation="fadeInLeft">Job search <span style='color: #1582dc'>For people who care</span></h1>
                 <div class="hero-sub-title animated fadeInRight done" data-animation="fadeInRight">
                     <em>Find a job that suites your values today</em>
-            
-                
+          
                     <form class="form-inline" id="searchForm" role="form" ng-submit="search()" novalidate>
-  <!--                     <div class="form-group">
-                        <input ng-model="keyword"  class="form-control"   placeholder="Type a keyword">
-                      </div> -->
                       <div class="form-group dropdown">
                         <button type="button" class="btn btn-default" placeholder="Select a few categories" ng-model="selectedCategories" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="category.value as category.label for category in categories" bs-select></button>
                       </div>
                       <div class="form-group dropdown">
-                        <button type="button" class="btn btn-default" placeholder="Select location" ng-model="selectedLocations" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="location.value as location.label for location in locations" bs-select></button>
+                        <button type="button" class="btn btn-default" placeholder="Select locations" ng-model="selectedLocations" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="location.value as location.label for location in locations" bs-select></button>
                       </div>
                       <button type="submit"  class="btn btn-default">Find Jobs</button>
                     </form>
@@ -31,18 +27,7 @@
 <div class="container" id="home">
   <div class="row">
     <div class="col-sm-3" ng-repeat="job in jobs">
-      <div class="panel panel-default">
-        <div class="panel-body">
-              <h4>{{job.title | noHTML }}</h4>
-              <span><i class="ion-ribbon-b"></i> {{job.category.label | noHTML }}</span>
-              <span ng-show="job.company.display_name"><i class="ion-person-stalker"></i> {{job.company.display_name }}</span>
-              <!-- <p>{{job.salary_is_predicted }}</p> -->
-              <span ng-show="job.location.display_name"><i class="ion-location"></i> {{job.location.display_name }}</span>
-              <p>{{job.description | noHTML  | limitTo: 100  }}</p>
-             
-        </div>
-        <a class="btn btn-primary btn-block" href="{{job.redirect_url }}">View details »</a>
-      </div>
+      <div ng-include="'/partials/job/preview.html'"></div>
     </div>
   </div>
 </div>

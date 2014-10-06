@@ -1,7 +1,6 @@
 angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer', 'ngSanitize', 'angular-loading-bar'])
   .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
 
-$httpProvider.interceptors.push('jsonpInterceptor');
 
     $stateProvider
       .state('home', {
