@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.3.0-rc.4
+ * @license AngularJS v1.3.0-beta.13
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -169,7 +169,7 @@ angular.module('ngMessages', [])
     *
     * @description
     * `ngMessages` is a directive that is designed to show and hide messages based on the state
-    * of a key/value object that it listens on. The directive itself compliments error message
+    * of a key/value object that is listens on. The directive itself compliments error message
     * reporting with the `ngModel` $error object (which stores a key/value state of validation errors).
     *
     * `ngMessages` manages the state of internal messages within its container element. The internal
@@ -233,14 +233,14 @@ angular.module('ngMessages', [])
     *   </file>
     * </example>
     */
-  .directive('ngMessages', ['$compile', '$animate', '$templateRequest',
-                   function($compile,    $animate,   $templateRequest) {
+  .directive('ngMessages', ['$compile', '$animate', '$http', '$templateCache',
+                   function($compile,    $animate,   $http,   $templateCache) {
     var ACTIVE_CLASS = 'ng-active';
     var INACTIVE_CLASS = 'ng-inactive';
 
     return {
       restrict: 'AE',
-      controller: function() {
+      controller: ['$scope', function($scope) {
         this.$renderNgMessageClasses = angular.noop;
 
         var messages = [];
@@ -281,7 +281,7 @@ angular.module('ngMessages', [])
             return value !== null && value !== false && value;
           }
         };
-      },
+      }],
       require: 'ngMessages',
       link: function($scope, element, $attrs, ctrl) {
         ctrl.renderElementClasses = function(bool) {
@@ -301,8 +301,8 @@ angular.module('ngMessages', [])
 
         var tpl = $attrs.ngMessagesInclude || $attrs.include;
         if(tpl) {
-          $templateRequest(tpl)
-            .then(function processTemplate(html) {
+          $http.get(tpl, { cache: $templateCache })
+            .success(function processTemplate(html) {
               var after, container = angular.element('<div/>').html(html);
               angular.forEach(container.children(), function(elm) {
                elm = angular.element(elm);

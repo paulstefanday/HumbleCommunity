@@ -380,6 +380,15 @@ a {
   text-align: center;
   margin-bottom: 20px;
   height: 348px;
+  background: url(/images/map.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#searchForm {
+  margin-top: 20px;
 }
 
 .panel h4 {

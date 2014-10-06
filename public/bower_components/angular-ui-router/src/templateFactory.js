@@ -89,7 +89,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
 
   /**
    * @ngdoc function
-   * @name ui.router.util.$templateFactory#fromProvider
+   * @name ui.router.util.$templateFactory#fromUrl
    * @methodOf ui.router.util.$templateFactory
    *
    * @description

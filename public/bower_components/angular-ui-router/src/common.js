@@ -49,7 +49,7 @@ function ancestors(first, second) {
  * @param {Object} object A JavaScript object.
  * @return {Array} Returns the keys of the object as an array.
  */
-function objectKeys(object) {
+function keys(object) {
   if (Object.keys) {
     return Object.keys(object);
   }
@@ -96,9 +96,8 @@ function inheritParams(currentParams, newParams, $current, $to) {
   var parents = ancestors($current, $to), parentParams, inherited = {}, inheritList = [];
 
   for (var i in parents) {
-    if (!parents[i].params) continue;
-    parentParams = objectKeys(parents[i].params);
-    if (!parentParams.length) continue;
+    if (!parents[i].params || !parents[i].params.length) continue;
+    parentParams = parents[i].params;
 
     for (var j in parentParams) {
       if (arraySearch(inheritList, parentParams[j]) >= 0) continue;
@@ -107,6 +106,23 @@ function inheritParams(currentParams, newParams, $current, $to) {
     }
   }
   return extend({}, inherited, newParams);
+}
+
+/**
+ * Normalizes a set of values to string or `null`, filtering them by a list of keys.
+ *
+ * @param {Array} keys The list of keys to normalize/return.
+ * @param {Object} values An object hash of values to normalize.
+ * @return {Object} Returns an object hash of normalized string values.
+ */
+function normalize(keys, values) {
+  var normalized = {};
+
+  forEach(keys, function (name) {
+    var value = values[name];
+    normalized[name] = (value != null) ? String(value) : null;
+  });
+  return normalized;
 }
 
 /**

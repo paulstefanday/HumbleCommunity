@@ -2,51 +2,21 @@
 
 angular.module('mgcrea.ngStrap.tab', [])
 
+  .run(function($templateCache) {
+
+    $templateCache.put('$pane', '{{pane.content}}');
+
+  })
+
   .provider('$tab', function() {
 
     var defaults = this.defaults = {
       animation: 'am-fade',
-      template: 'tab/tab.tpl.html',
-      navClass: 'nav-tabs',
-      activeClass: 'active'
-    };
-
-    var controller = this.controller = function($scope, $element, $attrs) {
-      var self = this;
-
-      // Attributes options
-      self.$options = angular.copy(defaults);
-      angular.forEach(['animation', 'navClass', 'activeClass'], function(key) {
-        if(angular.isDefined($attrs[key])) self.$options[key] = $attrs[key];
-      });
-
-      // Publish options on scope
-      $scope.$navClass = self.$options.navClass;
-      $scope.$activeClass = self.$options.activeClass;
-
-      self.$panes = $scope.$panes = [];
-
-      self.$viewChangeListeners = [];
-
-      self.$push = function(pane) {
-        self.$panes.push(pane);
-      };
-
-      self.$panes.$active = 0;
-      self.$setActive = $scope.$setActive = function(value) {
-        self.$panes.$active = value;
-        self.$viewChangeListeners.forEach(function(fn) {
-          fn();
-        });
-      };
-
+      template: 'tab/tab.tpl.html'
     };
 
     this.$get = function() {
-      var $tab = {};
-      $tab.defaults = defaults;
-      $tab.controller = controller;
-      return $tab;
+      return {defaults: defaults};
     };
 
   })
@@ -56,75 +26,48 @@ angular.module('mgcrea.ngStrap.tab', [])
     var defaults = $tab.defaults;
 
     return {
-      require: ['?ngModel', 'bsTabs'],
-      transclude: true,
+      restrict: 'EAC',
       scope: true,
-      controller: ['$scope', '$element', '$attrs', $tab.controller],
+      require: '?ngModel',
       templateUrl: function(element, attr) {
         return attr.template || defaults.template;
       },
-      link: function postLink(scope, element, attrs, controllers) {
+      link: function postLink(scope, element, attr, controller) {
 
-        var ngModelCtrl = controllers[0];
-        var bsTabsCtrl = controllers[1];
+        // Directive options
+        var options = defaults;
+        angular.forEach(['animation'/*, 'template'*/], function(key) {
+          if(angular.isDefined(attr[key])) options[key] = attr[key];
+        });
 
-        if(ngModelCtrl) {
-
-          // Update the modelValue following
-          bsTabsCtrl.$viewChangeListeners.push(function() {
-            ngModelCtrl.$setViewValue(bsTabsCtrl.$panes.$active);
-          });
-
-          // modelValue -> $formatters -> viewValue
-          ngModelCtrl.$formatters.push(function(modelValue) {
-            // console.warn('$formatter("%s"): modelValue=%o (%o)', element.attr('ng-model'), modelValue, typeof modelValue);
-            bsTabsCtrl.$setActive(modelValue * 1);
-            return modelValue;
-          });
-
-        }
-
-      }
-    };
-
-  })
-
-  .directive('bsPane', function($window, $animate, $sce) {
-
-    return {
-      require: ['^?ngModel', '^bsTabs'],
-      scope: true,
-      link: function postLink(scope, element, attrs, controllers) {
-
-        var ngModelCtrl = controllers[0];
-        var bsTabsCtrl = controllers[1];
+        // Require scope as an object
+        attr.bsTabs && scope.$watch(attr.bsTabs, function(newValue, oldValue) {
+          scope.panes = newValue;
+        }, true);
 
         // Add base class
-        element.addClass('tab-pane');
+        element.addClass('tabs');
 
-        // Observe title attribute for change
-        attrs.$observe('title', function(newValue, oldValue) {
-          scope.title = $sce.trustAsHtml(newValue);
-        });
-
-        // Add animation class
-        if(bsTabsCtrl.$options.animation) {
-          element.addClass(bsTabsCtrl.$options.animation);
+        // Support animations
+        if(options.animation) {
+          element.addClass(options.animation);
         }
 
-        // Push pane to parent bsTabs controller
-        bsTabsCtrl.$push(scope);
+        scope.active = scope.activePane = 0;
+        // view -> model
+        scope.setActive = function(index, ev) {
+          scope.active = index;
+          if(controller) {
+            controller.$setViewValue(index);
+          }
+        };
 
-        function render() {
-          var index = bsTabsCtrl.$panes.indexOf(scope);
-          var active = bsTabsCtrl.$panes.$active;
-          $animate[index === active ? 'addClass' : 'removeClass'](element, bsTabsCtrl.$options.activeClass);
+        // model -> view
+        if(controller) {
+          controller.$render = function() {
+            scope.active = controller.$modelValue * 1;
+          };
         }
-
-        bsTabsCtrl.$viewChangeListeners.push(function() {
-          render();
-        });
-        render();
 
       }
     };

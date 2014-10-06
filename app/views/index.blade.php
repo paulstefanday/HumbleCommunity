@@ -9,6 +9,7 @@
   <link href="/bower_components/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/bower_components/angular-motion/dist/angular-motion.min.css" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -33,15 +34,16 @@
 <div ui-view class="fadeZoom"></div>
 <!-- required -->
 <script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
 <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
-<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="/bower_components/angular-strap/dist/angular-strap.min.js"></script>
 <script src="/bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
 <script src="/vendor/satellizer.js"></script>
 <script src="/vendor/loading-bar.js"></script>
+
 
 <!-- app -->
 <script src="/app.js"></script>

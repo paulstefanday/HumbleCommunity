@@ -11,7 +11,6 @@ angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
     var defaults = this.defaults = {
       animation: 'am-fade',
       prefixClass: 'alert',
-      prefixEvent: 'alert',
       placement: null,
       template: 'alert/alert.tpl.html',
       container: false,
@@ -21,8 +20,7 @@ angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
       show: true,
       // Specific options
       duration: false,
-      type: false,
-      dismissable: true
+      type: false
     };
 
     this.$get = function($modal, $timeout) {
@@ -36,8 +34,7 @@ angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
 
         $alert = $modal(options);
 
-        // Support scope as string options [/*title, content, */ type, dismissable]
-        $alert.$scope.dismissable = !!options.dismissable;
+        // Support scope as string options [/*title, content, */type]
         if(options.type) {
           $alert.$scope.type = options.type;
         }
@@ -63,7 +60,7 @@ angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
 
   })
 
-  .directive('bsAlert', function($window, $sce, $alert) {
+  .directive('bsAlert', function($window, $location, $sce, $alert) {
 
     var requestAnimationFrame = $window.requestAnimationFrame || $window.setTimeout;
 
@@ -74,7 +71,7 @@ angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
 
         // Directive options
         var options = {scope: scope, element: element, show: false};
-        angular.forEach(['template', 'placement', 'keyboard', 'html', 'container', 'animation', 'duration', 'dismissable'], function(key) {
+        angular.forEach(['template', 'placement', 'keyboard', 'html', 'container', 'animation', 'duration'], function(key) {
           if(angular.isDefined(attr[key])) options[key] = attr[key];
         });
 
@@ -102,7 +99,7 @@ angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
 
         // Garbage collection
         scope.$on('$destroy', function() {
-          if (alert) alert.destroy();
+          alert.destroy();
           options = null;
           alert = null;
         });
