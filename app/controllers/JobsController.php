@@ -6,9 +6,7 @@ class JobsController extends \BaseController {
 
     public function __construct()
     {
-     
         $this->beforeFilter('auth', array('except' => 'index'));
-
     }
 
 	public function index()
