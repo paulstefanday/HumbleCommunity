@@ -122,7 +122,7 @@ angular.module('mgcrea.ngStrap.affix', ['mgcrea.ngStrap.helpers.dimensions', 'mg
         $affix.$debouncedOnResize = debounce($affix.$onResize, 50);
 
         $affix.$parseOffsets = function() {
-
+          var initialPosition = element.css('position');
           // Reset position to calculate correct offsetTop
           element.css('position', (options.offsetParent) ? '' : 'relative');
 
@@ -154,6 +154,8 @@ angular.module('mgcrea.ngStrap.affix', ['mgcrea.ngStrap.helpers.dimensions', 'mg
             }
           }
 
+          // Bring back the element's position after calculations
+          element.css('position', initialPosition);
         };
 
         // Private methods
@@ -176,7 +178,7 @@ angular.module('mgcrea.ngStrap.affix', ['mgcrea.ngStrap.helpers.dimensions', 'mg
         }
 
         function getScrollTop() {
-          return targetEl[0] === $window ? $window.pageYOffset : targetEl[0] === $window;
+          return targetEl[0] === $window ? $window.pageYOffset : targetEl[0].scrollTop;
         }
 
         function getScrollHeight() {
@@ -208,6 +210,7 @@ angular.module('mgcrea.ngStrap.affix', ['mgcrea.ngStrap.helpers.dimensions', 'mg
 
         var affix = $affix(element, options);
         scope.$on('$destroy', function() {
+          affix && affix.destroy();
           options = null;
           affix = null;
         });

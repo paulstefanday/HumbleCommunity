@@ -2,19 +2,19 @@ angular.module('MyApp')
   .factory('Job', function($http, $auth) {
     return {
       getJobs: function(limit) {
-        return $http.get('/api/v1/jobs/');
+        return $http.get('/api/jobs/');
       },
       getJob: function(id) {
-        return $http.get('/api/v1/jobs/' + id);
+        return $http.get('/api/jobs/' + id);
       },
       addJob: function(data) {
-        return $http.post('/api/v1/jobs/', data);
+        return $http.post('/api/jobs/', data);
       },
       updateJob: function(data) {
-        return $http.put('/api/v1/jobs/' + data.id, data);
+        return $http.post('/api/jobs/' + data.id, data);
       },
       deleteJob: function(id) {
-        return $http.delete('/api/v1/jobs/' + id);
+        return $http.delete('/api/jobs/' + id);
       }
     };
   });

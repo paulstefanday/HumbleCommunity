@@ -1,4 +1,4 @@
-angular.module('MyApp').controller('homeCtrl', function($scope, $alert, $auth, $http, $resource, Job) {
+angular.module('MyApp').controller('HomeCtrl', function($scope, $alert, $auth, $http, $resource, Job) {
 
 	$scope.jobs = {};
 

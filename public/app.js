@@ -1,76 +1,48 @@
 angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer', 'ngSanitize', 'angular-loading-bar'])
-  .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $datepickerProvider) {
 
 
-    $stateProvider
-      .state('home', {
-        url: '/',
-        controller: 'homeCtrl',
-        templateUrl: 'partials/home.html'
-      })
-      .state('login', {
-        url: '/login',
-        templateUrl: 'partials/login.html',
-        controller: 'LoginCtrl'
-      })
-      .state('signup', {
-        url: '/signup',
-        templateUrl: 'partials/signup.html',
-        controller: 'SignupCtrl'
-      })
-      .state('logout', {
-        url: '/logout',
-        template: null,
-        controller: 'LogoutCtrl'
-      })
-      .state('profile', {
-        url: '/profile',
-        templateUrl: 'partials/profile.html',
-        controller: 'ProfileCtrl',
-        resolve: {
-          authenticated: ['$location', '$auth', function($location, $auth) {
-            if (!$auth.isAuthenticated()) {
-              return $location.path('/login');
-            }
-          }]
+
+var noauth = [
+{ state: 'home',            url: '/',             ctrl: 'Home',       html: 'partials/home.html' },
+{ state: 'login',           url: '/login',        ctrl: 'Login',      html: 'partials/auth/login.html' },
+{ state: 'signup',          url: '/signup',       ctrl: 'Signup',     html: 'partials/auth/signup.html' },
+{ state: 'logout',          url: '/logout',       ctrl: 'Logout',     html: null }
+];
+
+var hasauth = [
+{ state: 'admin',           url: '/admin',             ctrl: 'Admin',           html: 'partials/admin/user/profile.html' },
+{ state: 'profile',         url: '/admin/profile',     ctrl: 'Profile',         html: 'partials/admin/user/profile.html' },
+{ state: 'adminjobupdate',  url: '/admin/job/:id',     ctrl: 'JobUpdate',       html: 'partials/admin/job/update.html' },
+{ state: 'adminjob',        url: '/admin/jobs',        ctrl: 'JobCreate',       html: 'partials/admin/job/create.html' },
+{ state: 'admincategory',   url: '/category',          ctrl: 'CategoryCreate',  html: 'partials/admin/category/addcategory.html' }
+];
+
+    noauth.forEach(function(route) {
+      $stateProvider.state(route.state, { url: route.url, controller: route.ctrl +'Ctrl', templateUrl: route.html } );
+    });
+
+    hasauth.forEach(function(route) {
+        $stateProvider.state(route.state, { url: route.url, controller: route.ctrl +'Ctrl', templateUrl: route.html, resolve: {
+          authenticated: ['$location', '$auth', function($location, $auth) { if (!$auth.isAuthenticated()) return $location.path('/login'); }]
         }
-      })   
-      .state('addjob', {
-        url: '/jobs/add',
-        templateUrl: 'partials/addjob.html',
-        controller: 'AddJobCtrl',
-        resolve: {
-          authenticated: ['$location', '$auth', function($location, $auth) {
-            if (!$auth.isAuthenticated()) {
-              return $location.path('/login');
-            }
-          }]
-        }
-      })
-      .state('job', {
-        url: '/job/:id',
-        templateUrl: 'partials/job.html',
-        controller: 'JobCtrl',
-        resolve: {
-          authenticated: ['$location', '$auth', function($location, $auth) {
-            if (!$auth.isAuthenticated()) {
-              return $location.path('/login');
-            }
-          }]
-        }
-      })
-      .state('addcategory', {
-        url: '/categories/add',
-        templateUrl: 'partials/addcategory.html',
-        controller: 'AddCategoryCtrl',
-        resolve: {
-          authenticated: ['$location', '$auth', function($location, $auth) {
-            if (!$auth.isAuthenticated()) {
-              return $location.path('/login');
-            }
-          }]
-        }
-      });       
+      });  
+    });
+
+    angular.extend($datepickerProvider.defaults, {
+        dateFormat: 'yyyy-MM-dd',
+        placement: "top-left",
+        dateType: 'string',
+        autoclose: 1
+    });
+
+
+
+
+
+
+
+
 
     $urlRouterProvider.otherwise('/');
 

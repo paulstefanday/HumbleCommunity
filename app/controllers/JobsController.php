@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class JobsController extends \BaseController {
 
 	public function index()
@@ -14,7 +16,6 @@ class JobsController extends \BaseController {
 		return Response::json(['data' => $job ], 200);
 	}
 
-
 	public function show($id)
 	{
 		$job = Job::find( $id );
@@ -23,8 +24,18 @@ class JobsController extends \BaseController {
 
 	public function update($id)
 	{
-		$job = DB::table('jobs')->where('id', $id)->update(Input::all());
-		return Response::json(['data' => $job ], 200);
+		$job = Job::find($id);
+		$job->heading 		= Input::get('heading');
+		$job->description 	= Input::get('description');
+		$job->location 		= Input::get('location');
+		$job->salary_max 	= Input::get('salary_max');
+		$job->salary_min 	= Input::get('salary_min');
+		$job->start_date 	= Input::get('start_date');
+		$job->end_date 		= Input::get('end_date');
+		$job->save();
+
+		if($job) return Response::json(['data' => $job ], 200);
+		return Response::json(['error' => $update ], 500);
 	}
 
 	public function destroy($id)

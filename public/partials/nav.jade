@@ -1,0 +1,16 @@
+.navbar-header
+  a.navbar-brand( href="/" ) Compassionate Careers
+ul.nav.navbar-nav.pull-right 
+ul.nav.navbar-nav.pull-right(ng-if="!isAuthenticated()")
+  li
+    a( href="/#/login") Login
+  li
+    a(href="/#/signup") Sign up
+
+ul.nav.navbar-nav.pull-right( ng-if="isAuthenticated()" )
+  li( ng-if="isAuthenticated()")
+    a(href="/#/admin/jobs") Add a job
+  li( ng-if="isAuthenticated()")
+    a( href="/#/profile") Profile
+  li
+    a( href="/#/logout") Logout
