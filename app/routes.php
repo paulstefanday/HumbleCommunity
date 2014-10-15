@@ -24,9 +24,8 @@ Route::post('auth/linkedin', 'AuthController@linkedin');
 Route::get('auth/twitter', 'AuthController@twitter');
 Route::get('auth/unlink/{provider}', array('before' => 'auth', 'uses' => 'AuthController@unlink'));
 
-Route::group(['prefix' => 'api',  'before' => 'auth'], function() { //,
+Route::group(['prefix' => 'api'], function() { //,
 	Route::resource('jobs', 'JobsController');
-	Route::post('jobs/{id}', 'JobsController@update');
 	Route::resource('categories', 'CategoriesController');
 });
 

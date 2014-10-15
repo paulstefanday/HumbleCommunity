@@ -1,4 +1,4 @@
-angular.module('MyApp').controller('HomeCtrl', function($scope, $alert, $auth, $http, $resource, Job) {
+angular.module('MyApp').controller('HomeCtrl', function($scope, $alert, $auth, $http, $resource, Job, Locations) {
 
 	$scope.jobs = {};
 
@@ -14,16 +14,7 @@ angular.module('MyApp').controller('HomeCtrl', function($scope, $alert, $auth, $
 		{"value":"","label":"Management"},
 	];
 
-	$scope.locations = [
-		{"value":"","label":"NSW"},
-		{"value":"","label":"ACT"},
-		{"value":"","label":"QLD"},
-		{"value":"","label":"VIC"},
-		{"value":"","label":"NT"},
-		{"value":"","label":"SA"},
-		{"value":"","label":"WA"},
-		{"value":"","label":"TAS"},
-	];
+	$scope.locations = Locations.getStates();
 
 
 });

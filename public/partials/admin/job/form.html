@@ -1,29 +1,33 @@
 
 <div class="form-group">
   <label class="control-label">Heading</label>
-  <input type="text" ng-model="job.heading" class="form-control"/>
+  <input type="text" ng-model="job.heading" ng-required="true" class="form-control"/>
 </div>
 <div class="form-group">
   <label class="control-label">Description</label>
-  <textarea ng-model="job.description" class="form-control"></textarea>
+  <textarea ng-model="job.description" ng-required="true" class="form-control"></textarea>
 </div>
 <div class="form-group">
   <label class="control-label">Salary Max</label>
-  <input type="text" ng-model="job.salary_max" class="form-control"/>
+  <input type="text" ng-model="job.salary_max" ng-pattern="/^[0-9-]+$/" class="form-control"/>
 </div>
 <div class="form-group">
   <label class="control-label">Salary Min</label>
-  <input type="text" ng-model="job.salary_min" class="form-control"/>
+  <input type="text" ng-model="job.salary_min" ng-pattern="/^[0-9-]+$/" class="form-control"/>
 </div>
 <div class="form-group">
   <label class="control-label">Start Date</label>
-  <input type="text" ng-model="job.start_date" data-max-date="{{job.end_date}}" bs-datepicker="bs-datepicker" class="form-control"/>
+  <input type="text" ng-model="job.start_date" data-max-date="{{job.end_date}}" bs-datepicker="bs-datepicker" ng-required="true" class="form-control"/>
 </div>
 <div class="form-group">
   <label class="control-label">End Date</label>
-  <input type="text" ng-model="job.end_date" data-min-date="{{job.start_date}}" bs-datepicker="bs-datepicker" class="form-control"/>
+  <input type="text" ng-model="job.end_date" data-min-date="{{job.start_date}}" bs-datepicker="bs-datepicker" ng-required="true" class="form-control"/>
 </div>
 <div class="form-group">
-  <label class="control-label">Location</label>
-  <input type="text" ng-model="job.location" data-animation="am-flip-x" ng-options="address.formatted_address as address.formatted_address for address in getAddress($viewValue)" placeholder="Enter address" bs-typeahead="bs-typeahead" class="form-control"/>
+  <label class="control-label">State</label>
+  <select ng-model="job.state" ng-options="state.value as state.label for state in states" ng-required="true" class="form-control"></select>
+</div>
+<div class="form-group">
+  <label class="control-label">Suburb</label>
+  <input type="text" ng-model="job.suburb" ng-required="true" class="form-control"/>
 </div>

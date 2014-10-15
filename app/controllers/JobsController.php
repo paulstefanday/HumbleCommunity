@@ -4,6 +4,13 @@ use Carbon\Carbon;
 
 class JobsController extends \BaseController {
 
+    public function __construct()
+    {
+     
+        $this->beforeFilter('auth', array('except' => 'index'));
+
+    }
+
 	public function index()
 	{
 		$jobs = Job::all()->toArray();
@@ -27,11 +34,13 @@ class JobsController extends \BaseController {
 		$job = Job::find($id);
 		$job->heading 		= Input::get('heading');
 		$job->description 	= Input::get('description');
-		$job->location 		= Input::get('location');
+		// $job->location 		= Input::get('location');
 		$job->salary_max 	= Input::get('salary_max');
 		$job->salary_min 	= Input::get('salary_min');
 		$job->start_date 	= Input::get('start_date');
 		$job->end_date 		= Input::get('end_date');
+		$job->state 		= Input::get('state');
+		$job->suburb 		= Input::get('suburb');
 		$job->save();
 
 		if($job) return Response::json(['data' => $job ], 200);

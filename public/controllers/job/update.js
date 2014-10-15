@@ -1,9 +1,8 @@
 angular.module('MyApp')
-  .controller('JobUpdateCtrl', function($scope, $stateParams, $auth, $alert, Account, Job, $location, $http ) {
+  .controller('JobUpdateCtrl', function($scope, $stateParams, $auth, $alert, Account, Job, $location, $http, Locations ) {
 
-	$scope.job = {};
-
-  console.log($stateParams.id);
+	 $scope.job = {};
+   $scope.states = Locations.getStates();
 
     $scope.getJob = function() {
 		Job.getJob($stateParams.id).success(function(data) {
@@ -43,14 +42,14 @@ angular.module('MyApp')
         });
     };
 
-    $scope.getAddress = function(viewValue) {
-      var params = {address: viewValue, sensor: false};
-      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
-      .then(function(res) {
-        console.log(res.data.results)
-        return res.data.results;
-      });
-    };
+    // $scope.getAddress = function(viewValue) {
+    //   var params = {address: viewValue, sensor: false};
+    //   return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
+    //   .then(function(res) {
+    //     console.log(res.data.results)
+    //     return res.data.results;
+    //   });
+    // };
 
     $scope.getJob();
 

@@ -11,7 +11,7 @@ angular.module('MyApp')
         return $http.post('/api/jobs/', data);
       },
       updateJob: function(data) {
-        return $http.post('/api/jobs/' + data.id, data);
+        return $http.put('/api/jobs/' + data.id, data);
       },
       deleteJob: function(id) {
         return $http.delete('/api/jobs/' + id);

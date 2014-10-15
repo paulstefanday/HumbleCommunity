@@ -16,12 +16,15 @@ return array(
      |
      */
     'defaults' => array(
-        'supportsCredentials' => false,
-        'allowedOrigins' => array(),
-        'allowedHeaders' => array(),
-        'allowedMethods' => array(),
-        'exposedHeaders' => array(),
-        'maxAge' => 0,
+        // 'supportsCredentials' => false,
+        // 'allowedOrigins' => array(),
+        // 'allowedHeaders' => array(),
+        // 'allowedMethods' => array(),
+        // 'exposedHeaders' => array(),
+        // 'maxAge' => 0,
+        'allowedOrigins' => array('*'),
+        'allowedHeaders' => array('*'),
+        'allowedMethods' => array('*'),
         'hosts' => array(),
     ),
 

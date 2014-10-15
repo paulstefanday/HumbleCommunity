@@ -47,6 +47,7 @@
 <script src="/controllers/home.js"></script>
 <script src="/filters/nohtml.js"></script>
 <script src="/services/account.js"></script>
+<script src="/services/locations.js"></script>
 <script src="/services/job.js"></script>
 <script src="/services/category.js"></script>
 <script src="/services/jsonp.js"></script>
