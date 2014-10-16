@@ -9,47 +9,20 @@ angular.module('MyApp')
           $scope.job = data.data;
         })
         .error(function(error) {
-          $alert({
-            content: error.message,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          $alert({ content: error.message });
         });
     };
 
     $scope.updateJob = function(index, id) {
      	Job.updateJob($scope.job)
         .success(function(data) {
-          console.log(data);
-          console.log($scope.job);
           $location.path('/admin/jobs');
-          $alert({
-            content: 'Job saved successfully',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
-
+          $alert({ content: 'Job saved successfully' });
         })
         .error(function(error) {
-          $alert({
-            content: error.message,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          $alert({ content: error.message });
         });
     };
-
-    // $scope.getAddress = function(viewValue) {
-    //   var params = {address: viewValue, sensor: false};
-    //   return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
-    //   .then(function(res) {
-    //     console.log(res.data.results)
-    //     return res.data.results;
-    //   });
-    // };
 
     $scope.getJob();
 

@@ -3,39 +3,19 @@ angular.module('MyApp')
     $scope.login = function() {
       $auth.login({ email: $scope.email, password: $scope.password })
         .then(function() {
-          $alert({
-            content: 'You have successfully logged in',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          $alert({ content: 'You have successfully logged in' });
         })
         .catch(function(response) {
-          $alert({
-            content: response.data.message,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          $alert({ content: response.data.message });
         });
     };
     $scope.authenticate = function(provider) {
       $auth.authenticate(provider)
         .then(function() {
-          $alert({
-            content: 'You have successfully logged in',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          $alert({ content: 'You have successfully logged in' });
         })
         .catch(function(response) {
-          $alert({
-            content: response.data,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          $alert({ content: response.data });
         });
     };
   });

@@ -19,8 +19,8 @@ App::before(function($request)
 
 App::after(function($request, $response)
 {
-        $response->headers->set('Access-Control-Allow-Origin', '*');
-        return $response;
+        // $response->headers->set('Access-Control-Allow-Origin', '*');
+        // return $response;
 });
 
 /*
@@ -50,6 +50,33 @@ Route::filter('auth', function()
         Response::json(array('message' => 'Token has expired'));
     }
 });
+
+
+Route::filter('auth.job', function($route)
+{
+
+
+	if (!Request::header('Authorization'))
+	{
+        return Response::json(array('message' => 'Please make sure your request has an Authorization header'), 401);
+	}
+
+    $token = explode(' ', Request::header('Authorization'))[1];
+    $payloadObject = JWT::decode($token, Config::get('secrets.TOKEN_SECRET'));
+    $payload = json_decode(json_encode($payloadObject), true);
+
+    if ($payload['exp'] < time())
+    {
+        Response::json(array('message' => 'Token has expired'));
+    }
+
+    $id = $route->getParameter('id');
+    $exist = Job::where('id', $id)->where('user_id', userId())->get()->toArray();
+    if(empty($exist)) return Response::json(array('message' => 'You are not allowed access to this record. You have been logged out.'), 401);
+
+
+});
+
 
 
 Route::filter('auth.basic', function()

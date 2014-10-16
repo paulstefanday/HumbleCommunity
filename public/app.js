@@ -1,5 +1,5 @@
 angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer', 'ngSanitize', 'angular-loading-bar'])
-  .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $datepickerProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $datepickerProvider, $alertProvider) {
 
     var noauth = [
       { state: 'home',            url: '/',             ctrl: 'Home',       html: 'partials/home.html' },
@@ -16,10 +16,12 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStra
       { state: 'admincategory',   url: '/category',          ctrl: 'CategoryCreate',  html: 'partials/admin/category/addcategory.html' }
     ];
 
+    // process routes
     noauth.forEach(function(route) {
       $stateProvider.state(route.state, { url: route.url, controller: route.ctrl +'Ctrl', templateUrl: route.html } );
     });
 
+    // process auth routes
     hasauth.forEach(function(route) {
         $stateProvider.state(route.state, { url: route.url, controller: route.ctrl +'Ctrl', templateUrl: route.html, resolve: {
           authenticated: ['$location', '$auth', function($location, $auth) { if (!$auth.isAuthenticated()) return $location.path('/login'); }]
@@ -27,6 +29,14 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStra
       });  
     });
 
+    // alert settings
+    angular.extend($alertProvider.defaults, {
+            animation: 'fadeZoomFadeDown',
+            type: 'material',
+            duration: 5
+    });
+
+    // datepicker settings
     angular.extend($datepickerProvider.defaults, {
         dateFormat: 'yyyy-MM-dd',
         placement: "top-left",
@@ -36,16 +46,10 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStra
 
     $urlRouterProvider.otherwise('/');
 
+
+    // Social media login providers
     $authProvider.facebook({
       clientId: '657854390977827'
-    });
-
-    $authProvider.google({
-      clientId: '631036554609-v5hm2amv4pvico3asfi97f54sc51ji4o.apps.googleusercontent.com'
-    });
-
-    $authProvider.github({
-      clientId: '0ba2600b1dbdb756688b'
     });
 
     $authProvider.linkedin({
@@ -56,11 +60,4 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStra
       url: '/auth/twitter'
     });
 
-    $authProvider.oauth2({
-      name: 'foursquare',
-      url: '/auth/foursquare',
-      clientId: 'MTCEJ3NGW2PNNB31WOSBFDSAD4MTHYVAZ1UKIULXZ2CVFC2K',
-      redirectUri: window.location.origin,
-      authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate'
-    });
   });

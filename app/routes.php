@@ -11,22 +11,29 @@
 |
 */
 
-Route::get('api/me', array('before' => 'auth', 'uses' => 'UserController@getUser'));
-Route::put('api/me', array('before' => 'auth', 'uses' => 'UserController@updateUser'));
+Route::get('api/me', [ 'before' => 'auth', 'uses' => 'UserController@getUser' ]);
+Route::put('api/me', [ 'before' => 'auth', 'uses' => 'UserController@updateUser' ]);
 
-Route::post('auth/login', 'AuthController@login');
-Route::post('auth/signup', 'AuthController@signup');
-Route::post('auth/facebook', 'AuthController@facebook');
-Route::post('auth/foursquare', 'AuthController@foursquare');
-Route::post('auth/github', 'AuthController@github');
-Route::post('auth/google', 'AuthController@google');
-Route::post('auth/linkedin', 'AuthController@linkedin');
-Route::get('auth/twitter', 'AuthController@twitter');
-Route::get('auth/unlink/{provider}', array('before' => 'auth', 'uses' => 'AuthController@unlink'));
+Route::post('auth/login', 			'AuthController@login');
+Route::post('auth/signup', 			'AuthController@signup');
+Route::post('auth/facebook', 		'AuthController@facebook');
+Route::post('auth/foursquare', 		'AuthController@foursquare');
+Route::post('auth/github', 			'AuthController@github');
+Route::post('auth/google', 			'AuthController@google');
+Route::post('auth/linkedin', 		'AuthController@linkedin');
+Route::get('auth/twitter', 			'AuthController@twitter');
+Route::get('auth/unlink/{provider}', [ 'before' => 'auth', 'uses' => 'AuthController@unlink' ]);
 
-Route::group(['prefix' => 'api'], function() { //,
-	Route::resource('jobs', 'JobsController');
-	Route::resource('categories', 'CategoriesController');
+Route::group(['prefix' => 'api'], function() { 
+	
+	Route::group(['prefix' => 'jobs'], function() {
+		Route::get('/', 			[ 'before' => 'auth', 				'uses' => 'JobsController@index' ]);
+		Route::get('{id}', 			[ 'before' => 'auth.jobs', 			'uses' => 'JobsController@show' ]);
+		Route::post('/', 			[ 'before' => 'auth', 				'uses' => 'JobsController@store' ]);
+		Route::put('{id}', 			[ 'before' => 'auth.jobs', 			'uses' => 'JobsController@update' ]);
+		Route::delete('{id}', 		[ 'before' => 'auth.jobs', 			'uses' => 'JobsController@destroy' ]);
+	});
+
 });
 
 Route::get('{angular?}', [ 'uses' => 'HomeController@index' ])->where('angular', '.*');
