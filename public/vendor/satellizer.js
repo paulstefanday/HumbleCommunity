@@ -588,10 +588,10 @@
         var tokenName = config.tokenPrefix ? config.tokenPrefix + '_' + config.tokenName : config.tokenName;
         return {
           request: function(httpConfig) {
-            var skip = angular.isFunction($authProvider.requestFilter) && !$authProvider.requestFilter(httpConfig);
-            if (skip) {
-              return httpConfig;
-            }
+            // var skip = angular.isFunction($authProvider.requestFilter) && !$authProvider.requestFilter(httpConfig);
+            // if (skip) {
+            //   return httpConfig;
+            // }
 
             if (localStorage.getItem(tokenName)) {
               httpConfig.headers.Authorization = 'Bearer ' + localStorage.getItem(tokenName);
