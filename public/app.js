@@ -47,6 +47,16 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStra
     $urlRouterProvider.otherwise('/');
 
 
+    $authProvider.loginOnSignup = true;
+    // $authProvider.loginRedirect = 'http://compassionatecareers.com/';
+    // $authProvider.logoutRedirect = '/';
+    // $authProvider.signupRedirect = '/login';
+    $authProvider.loginUrl = 'http://compassionatecareers.com/auth/login';
+    $authProvider.signupUrl = 'http://compassionatecareers.com/auth/signup';
+    $authProvider.tokenName = 'token';
+    $authProvider.tokenPrefix = 'satellizer'; // Local storage name prefix
+    $authProvider.unlinkUrl = 'http://compassionatecareers.com/auth/unlink/';
+
     // Social media login providers
     $authProvider.facebook({
       clientId: '657854390977827'

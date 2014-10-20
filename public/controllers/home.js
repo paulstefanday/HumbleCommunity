@@ -2,7 +2,7 @@ angular.module('MyApp').controller('HomeCtrl', function($scope, $alert, $auth, $
 
 	$scope.jobs = {};
 
-	Job.getJobs().success(function(data) {
+	Job.getFeed().success(function(data) {
 	    $scope.jobs = data.data;
 	});
 

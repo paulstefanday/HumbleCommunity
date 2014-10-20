@@ -27,11 +27,13 @@ Route::get('auth/unlink/{provider}', [ 'before' => 'auth', 'uses' => 'AuthContro
 Route::group(['prefix' => 'api'], function() { 
 	
 	Route::group(['prefix' => 'jobs'], function() {
+		Route::get('all', 			'JobsController@feed');
 		Route::get('/', 			[ 'before' => 'auth', 				'uses' => 'JobsController@index' ]);
 		Route::get('{id}', 			[ 'before' => 'auth.jobs', 			'uses' => 'JobsController@show' ]);
 		Route::post('/', 			[ 'before' => 'auth', 				'uses' => 'JobsController@store' ]);
 		Route::put('{id}', 			[ 'before' => 'auth.jobs', 			'uses' => 'JobsController@update' ]);
 		Route::delete('{id}', 		[ 'before' => 'auth.jobs', 			'uses' => 'JobsController@destroy' ]);
+
 	});
 
 });
