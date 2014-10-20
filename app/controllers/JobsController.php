@@ -4,6 +4,12 @@ use Carbon\Carbon;
 
 class JobsController extends \BaseController {
 
+    public function __construct()
+    {
+        $this->beforeFilter('auth', array('only' => ['store', 'index'] ));
+        $this->beforeFilter('auth.job', array('only' => ['show', 'update', 'destory'] ));
+    } 
+
 	public function feed()
 	{
 		$jobs = Job::all()->toArray();

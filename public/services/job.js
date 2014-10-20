@@ -2,22 +2,22 @@ angular.module('MyApp')
   .factory('Job', function($http, $auth) {
     return {
       getFeed: function(limit) {
-        return $http.get('http://compassionatecareers.com/api/jobs/all');
+        return $http.get('/api/jobs/all');
       },
       getJobs: function(limit) {
-        return $http.get('http://compassionatecareers.com/api/jobs/');
+        return $http.get('/api/jobs/');
       },
       getJob: function(id) {
-        return $http.get('http://compassionatecareers.com/api/jobs/' + id);
+        return $http.get('/api/jobs/' + id);
       },
       addJob: function(data) {
-        return $http.post('http://compassionatecareers.com/api/jobs/', data);
+        return $http.post('/api/jobs/', data);
       },
       updateJob: function(data) {
-        return $http.put('http://compassionatecareers.com/api/jobs/' + data.id, data);
+        return $http.put('/api/jobs/' + data.id, data);
       },
       deleteJob: function(id) {
-        return $http.delete('http://compassionatecareers.com/api/jobs/' + id);
+        return $http.delete('/api/jobs/' + id);
       }
     };
   });

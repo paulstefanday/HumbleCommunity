@@ -38,7 +38,7 @@ Route::filter('auth', function()
 {
 	if (!Request::header('Authorization'))
 	{
-        return Response::json(array('message' => 'Please make sure your request has an Authorization header'), 401);
+        return Response::json(array('message' => Request::header()), 401);
 	}
 
     $token = explode(' ', Request::header('Authorization'))[1];
@@ -58,7 +58,7 @@ Route::filter('auth.job', function($route)
 
 	if (!Request::header('Authorization'))
 	{
-        return Response::json(array('message' => 'Please make sure your request has an Authorization header'), 401);
+        return Response::json(array('message' => Request::header()), 401);
 	}
 
     $token = explode(' ', Request::header('Authorization'))[1];
