@@ -1,33 +1,19 @@
 section#top
   .hero-parallax.parallax
-  .overlay.overlay-colored-9
-  .container
-    .hero-container
-      h1.hero-title.animated.fadeInLeft.done( data-animation="fadeInLeft" ) Job search <span style='color: #1582dc'>For people who care</span></h1>
-                <div class="hero-sub-title animated fadeInRight done" data-animation="fadeInRight">
-                    <em>Find a job that suites your values today</em>
-          
-                    <form class="form-inline" id="searchForm" role="form" ng-submit="search()" novalidate>
-                      <div class="form-group dropdown">
-                        <button type="button" class="btn btn-default" placeholder="Select a few categories" ng-model="selectedCategories" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="category.value as category.label for category in categories" bs-select></button>
-                      </div>
-                      <div class="form-group dropdown">
-                        <button type="button" class="btn btn-default" placeholder="Select locations" ng-model="selectedLocations" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="location.value as location.label for location in locations" bs-select></button>
-                      </div>
-                      <button type="submit"  class="btn btn-default">Find Jobs</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    .overlay.overlay-colored-9
+      .container
+        .hero-container
+          h1.hero-title.animated.fadeInLeft.done( data-animation="fadeInLeft" ) Job search <span style='color: #94CEFD'>For people who care</span>
+          .hero-sub-title.animated.fadeInRight.done( data-animation="fadeInRight" )
+            em Find a job that suites your values today
+            form#searchForm.form-inline( role="form" ng-submit="search()" novalidate )
+              .form-group.dropdown
+                button.btn.btn-default( type="button" placeholder="Select a few categories" ng-model="selectedCategories" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="category.value as category.label for category in categories" bs-select)
+              .form-group.dropdown
+                button.btn.btn-default( type="button" placeholder="Select locations" ng-model="selectedLocations" data-html="1" data-multiple="1" data-animation="am-flip-x" ng-options="location.value as location.label for location in locations" bs-select)
+              button.btn.btn-default( type="submit" ) Find Jobs
 
-
-
-
-<div class="container" id="home">
-  <div class="row">
-    <div class="col-sm-3" ng-repeat="job in jobs">
-      <div ng-include="'/partials/job/preview.html'"></div>
-    </div>
-  </div>
-</div>
+.container#home
+  .row
+    .col-sm-3( ng-repeat="job in jobs" )
+      div( ng-include="'/partials/job/preview.html'" )

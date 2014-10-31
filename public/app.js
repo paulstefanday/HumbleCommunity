@@ -13,6 +13,7 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStra
       { state: 'profile',         url: '/admin/profile',     ctrl: 'Profile',         html: 'partials/admin/user/profile.html' },
       { state: 'adminjobupdate',  url: '/admin/job/:id',     ctrl: 'JobUpdate',       html: 'partials/admin/job/update.html' },
       { state: 'adminjob',        url: '/admin/jobs',        ctrl: 'JobCreate',       html: 'partials/admin/job/create.html' },
+      { state: 'adminjobfav',     url: '/admin/jobs/favorites', ctrl: 'JobFavorite',  html: 'partials/admin/job/favorites.html' },
       { state: 'admincategory',   url: '/category',          ctrl: 'CategoryCreate',  html: 'partials/admin/category/addcategory.html' }
     ];
 

@@ -1,0 +1,7 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4>{{job.job.heading}}</h4><span>{{job.job.category }}</span><span>{{job.job.end_date }}</span>
+    <p>{{ job.job.description }}</p>
+  </div><i ng-click="favorite(job.job)" class="icon ion-heart favorite"></i><a href="{{job.job.id }}" class="btn btn-primary btn-block">View details »</a>
+</div>

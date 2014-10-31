@@ -6,7 +6,7 @@ class JobsController extends \BaseController {
 
     public function __construct()
     {
-        $this->beforeFilter('auth', array('only' => ['store', 'index'] ));
+        $this->beforeFilter('auth', array('only' => ['store', 'index', 'storeFavorite', 'destroyFavorite'] ));
         $this->beforeFilter('auth.job', array('only' => ['show', 'update', 'destory'] ));
     } 
 
@@ -14,6 +14,28 @@ class JobsController extends \BaseController {
 	{
 		$jobs = Job::all()->toArray();
 		return Response::json(['data' => $jobs ], 200);
+	}
+
+	public function favorites()
+	{
+		$jobs = Favorite::where('user_id', 1)->with('Job')->get()->toArray();
+		return Response::json(['data' => $jobs ], 200);
+	}
+
+	public function storeFavorite()
+	{
+		$fav = new Favorite;
+		$fav->user_id 		= userId();
+		$fav->job_id 		= Input::get('job_id');
+		$create = $fav->save();
+		return Response::json(['data' => $fav ], 200);
+	}
+
+	public function destroyFavorite($id)
+	{
+		$fav = Favorite::find($id);
+		$result = $fav->delete();
+		return Response::json(['data' => $result ], 200);
 	}
 
 

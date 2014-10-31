@@ -18,7 +18,7 @@
 <div ng-include="'/partials/nav.html'"></div>
 </div>
  
-<div ui-view class="fadeZoom"></div>
+<div ui-view class="fadeZoom "></div>
 <!-- required -->
 <script src="/bower_components/angular/angular.min.js"></script>
 <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
@@ -40,6 +40,7 @@
 <script src="/controllers/auth/logout.js"></script>
 <script src="/controllers/job/create.js"></script>
 <script src="/controllers/job/update.js"></script>
+<script src="/controllers/job/favorites.js"></script>
 <script src="/controllers/category/create.js"></script>
 <script src="/controllers/admin/profile.js"></script>
 <script src="/controllers/admin/admin.js"></script>

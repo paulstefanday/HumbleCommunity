@@ -28,9 +28,11 @@ Route::group(['prefix' => 'api'], function() {
 	
 	Route::group(['prefix' => 'jobs'], function() {
 		Route::get('all', 			'JobsController@feed');
+		Route::get('favorites', 	[ 'uses' => 'JobsController@favorites' ]);
 		Route::get('/', 			[ 'uses' => 'JobsController@index', 'before' => 'auth']);
 		Route::get('{id}', 			[ 'uses' => 'JobsController@show', 'before' => 'auth.jobs' ]);
 		Route::post('/', 			[ 'uses' => 'JobsController@store', 'before' => 'auth' ]);
+		Route::post('favorites', 	[ 'uses' => 'JobsController@storeFavorite', 'before' => 'auth' ]);
 		Route::put('{id}', 			[ 'uses' => 'JobsController@update', 'before' => 'auth.jobs' ]);
 		Route::delete('{id}', 		[ 'uses' => 'JobsController@destroy', 'before' => 'auth.jobs' ]);
 

@@ -11,6 +11,8 @@ ul.nav.navbar-nav.pull-right( ng-if="isAuthenticated()" )
   li( ng-if="isAuthenticated()")
     a(href="/#/admin/jobs") Add a job
   li( ng-if="isAuthenticated()")
+    a(href="/#/admin/jobs/favorites") Favorites
+  li( ng-if="isAuthenticated()")
     a( href="/#/admin/profile") Profile
   li
     a( href="/#/logout") Logout
