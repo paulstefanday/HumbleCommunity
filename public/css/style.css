@@ -30,7 +30,7 @@ input {
   border: 0px solid #fff !important; }
 
 body {
-  background: #fff;
+  background: #1474BA;
   color: #383a3c;
   font-weight: 400;
   font-size: 1em;
@@ -266,12 +266,17 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 20px; }
 
 #view.ng-enter {
-  -webkit-animation: 1s fadeIn;
-  animation: 1s fadeIn; }
+  -webkit-animation: 2s zoomInDown;
+  animation: 2s zoomInDown; }
 
 #view.ng-leave {
-  -webkit-animation: 1s fadeOut;
-  animation: 1s fadeOut; }
+  -webkit-animation: 1s fadeOutDown;
+  animation: 1s fadeOutDown;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
 
 .ng-hide-remove {
   -webkit-animation: 1s zoomIn;
@@ -283,12 +288,6 @@ h1, h2, h3, h4, h5, h6 {
   display: block !important; }
 
 .view {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
   overflow-x: hidden;
   overflow-y: auto; }
 
