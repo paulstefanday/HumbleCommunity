@@ -80,7 +80,7 @@ angular.module('MyApp', ['ngAnimate', 'ngResource', 'ngMessages', 'ui.router', '
 
   }).run(["$rootScope", "$location", 
     function ($rootScope, $location) {
-        $rootScope.nav = true;
+        $rootScope.nav = false;
 }] );
 
 
