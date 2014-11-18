@@ -13,10 +13,23 @@
     font-family: 'Raleway', Calibri, Arial, sans-serif;
 }
 
-.btn {
-  font-weight: 400;
-  background-color:$secondcolor;
+
+.shadow {
+      -moz-box-shadow:    0px 2px 0px 0px rgba(0,0,0,0.2) !important;
+  -webkit-box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.2) !important;
+  box-shadow:         0px 2px 0px 0px rgba(0,0,0,0.2) !important;
+}
+
+input {
   border:0px solid #fff !important;
+  @extend .shadow;
+}
+
+.btn, .btn-primary {
+  font-weight: 400;
+  background-color: $maincolor !important;
+  border:0px solid #fff !important;
+    @extend .shadow;
 }
 
 body {
@@ -47,29 +60,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.panel {
-  border-color: #cfd9D7;
-  border-radius: 2px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-  -webkit-border-radius: 5px;
--moz-border-radius: 5px;
-border-radius: 5px;
-}
+
 
 .panel-default > .panel-heading {
   font-size: 85%;
   font-weight: bold;
   color: #444;
   text-transform: uppercase;
-  background-color: #f6f6f6;
-  border-color: #cfd9db;
+  // background-color: #f6f6f6;
+  // border-color: #cfd9db;
 }
 
 
 
 .center-form {
-  width: 330px;
+max-width: 330px;
+width: 100%;
   margin: 12% auto;
+  color: #fff
 }
 
 .signup-or-separator {
