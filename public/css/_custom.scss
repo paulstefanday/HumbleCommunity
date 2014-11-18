@@ -1,5 +1,23 @@
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+*{
+    font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+
+a.btn {
+  font-weight: 400
+}
+
 body {
-  background-color:#1582dc !important;
+  background: #fff;
+  color: #383a3c;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.25;
+  // background-color:$maincolor !important;
 }
 
 .datepicker.dropdown-menu {
@@ -23,7 +41,7 @@ body {
 }
 
 #top {
-  background-color: #1582dc;
+  background-color: $maincolor;
   color:#fff;
   margin-top: -20px;
 padding-top: 171px;
@@ -49,13 +67,13 @@ height: 478px;
 	padding-top:10px;
 }
 
-#home .panel {
+#cards .panel {
 	height: 311px;
 	position:relative;
 }
 
-#home .panel a {
-  font-family: 'Montserrat', sans-serif;
+#cards .panel a {
+  // font-family: 'Montserrat', sans-serif;
 position: absolute;
 bottom: 0;
 -webkit-border-radius: 4px;
@@ -73,7 +91,7 @@ font-weight:bold;
 border-top:1px solid rgba(0,0,0,0.2);
 }
 
-#home .panel span {
+#cards .panel span {
 	font-size:11px;
 	width:100%;
 	margin-bottom:4px;float:left;

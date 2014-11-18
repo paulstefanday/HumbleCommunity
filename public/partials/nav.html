@@ -1,13 +1,14 @@
 
-<div class="navbar-header"><a href="/" class="navbar-brand">Compassionate Careers</a></div>
-<ul class="nav navbar-nav pull-right"></ul>
-<ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">
-  <li><a href="/#/login">Login</a></li>
-  <li><a href="/#/signup">Sign up</a></li>
-</ul>
-<ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
-  <li ng-if="isAuthenticated()"><a href="/#/admin/jobs">Add a job</a></li>
-  <li ng-if="isAuthenticated()"><a href="/#/admin/jobs/favorites">Favorites</a></li>
-  <li ng-if="isAuthenticated()"><a href="/#/admin/profile">Profile</a></li>
-  <li><a href="/#/logout">Logout</a></li>
-</ul>
+<div id="nav">
+  <div id="nav-toggle" ng-click="toggleNav()" ng-class="{ 'ion-ios7-close-outline': nav, 'ion-navicon' : !nav}"></div>
+  <ul id="nav-menu" ng-show="nav">
+    <li> <a href="" ng-click="goTo('home')">Home </a></li>
+    <li><a href="" ng-click="goTo('jobs')">Jobs</a></li>
+    <li> <a href="" ng-click="goTo('signup')">Events</a></li>
+    <li> <a href="" ng-click="goTo('home')">Campaigns</a></li>
+    <li ng-if="isAuthenticated()"><a href="" ng-click="goTo('admin')">Admin</a></li>
+    <li ng-if="!isAuthenticated()"><a href="" ng-click="goTo('login')">Login</a></li>
+    <li ng-if="!isAuthenticated()"><a href="" ng-click="goTo('signup')">Signup</a></li>
+    <li ng-if="isAuthenticated()"><a href="" ng-click="logout()">Logout</a></li>
+  </ul>
+</div>

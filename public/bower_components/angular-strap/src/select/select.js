@@ -197,12 +197,10 @@ angular.module('mgcrea.ngStrap.select', ['mgcrea.ngStrap.tooltip', 'mgcrea.ngStr
           if(options.multiple) {
             $select.$element.addClass('select-multiple');
           }
-          setTimeout(function() {
-            $select.$element.on(isTouch ? 'touchstart' : 'mousedown', $select.$onMouseDown);
-            if(options.keyboard) {
-              element.on('keydown', $select.$onKeyDown);
-            }
-          });
+          $select.$element.on(isTouch ? 'touchstart' : 'mousedown', $select.$onMouseDown);
+          if(options.keyboard) {
+            element.on('keydown', $select.$onKeyDown);
+          }
         };
 
         var _hide = $select.hide;

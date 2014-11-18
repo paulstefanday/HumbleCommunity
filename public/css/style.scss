@@ -1,4 +1,10 @@
+$maincolor: #22B3F2;
+$secondcolor: #1474BA;
+
 @import "base";
-@import "custom";
+@import "animation";
+@import "view";
+@import "nav";
+@import "home";
 @import "loading-bar";
 @import "angular";

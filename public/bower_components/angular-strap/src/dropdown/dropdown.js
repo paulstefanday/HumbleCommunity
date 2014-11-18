@@ -60,15 +60,14 @@ angular.module('mgcrea.ngStrap.dropdown', ['mgcrea.ngStrap.tooltip'])
         var show = $dropdown.show;
         $dropdown.show = function() {
           show();
-          setTimeout(function() {
-            options.keyboard && $dropdown.$element.on('keydown', $dropdown.$onKeyDown);
-            bodyEl.on('click', onBodyClick);
-          });
+          options.keyboard && $dropdown.$element.on('keydown', $dropdown.$onKeyDown);
+          bodyEl.on('click', onBodyClick);
           parentEl.hasClass('dropdown') && parentEl.addClass('open');
         };
 
         var hide = $dropdown.hide;
         $dropdown.hide = function() {
+          if(!$dropdown.$isShown) return;
           options.keyboard && $dropdown.$element.off('keydown', $dropdown.$onKeyDown);
           bodyEl.off('click', onBodyClick);
           parentEl.hasClass('dropdown') && parentEl.removeClass('open');
@@ -113,7 +112,7 @@ angular.module('mgcrea.ngStrap.dropdown', ['mgcrea.ngStrap.tooltip'])
         // Visibility binding support
         attr.bsShow && scope.$watch(attr.bsShow, function(newValue, oldValue) {
           if(!dropdown || !angular.isDefined(newValue)) return;
-          if(angular.isString(newValue)) newValue = !!newValue.match(',?(dropdown),?');
+          if(angular.isString(newValue)) newValue = !!newValue.match(/true|,?(dropdown),?/i);
           newValue === true ? dropdown.show() : dropdown.hide();
         });
 

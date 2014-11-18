@@ -1,0 +1,19 @@
+.navbar.navbar-default.navbar-static-top
+  .navbar-header
+    a.navbar-brand( href="/" ) Compassionate Careers
+  ul.nav.navbar-nav.pull-right 
+  ul.nav.navbar-nav.pull-right(ng-if="!vm.isAuthenticated()")
+    li
+      a( href="/#/login") Login
+    li
+      a(href="/#/signup") Sign up
+
+  ul.nav.navbar-nav.pull-right( ng-if="vm.isAuthenticated()" )
+    li
+      a(href="/#/admin/jobs") Add a job
+    li
+      a(href="/#/admin/jobs/favorites") Favorites
+    li
+      a( href="/#/admin/profile") Profile
+    li
+      a( href="#" ng-click="vm.logout()" ) Logout
