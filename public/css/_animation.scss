@@ -30,14 +30,14 @@
 
 
 #view.ng-enter {
-  -webkit-animation:1.5s fadeInDown;
-  animation:1.5s fadeInDown;
+  -webkit-animation:1.5s zoomIn;//fadeInDown;
+  animation:1.5s zoomIn; //fadeInDown;
 }
 
 
 #view.ng-leave {
-    -webkit-animation:1s fadeOutDown;
- animation:1s fadeOutDown;
+    -webkit-animation:1s fadeOut;
+ animation:1s fadeOut;
   position:absolute;
   top:0;
   left:0;

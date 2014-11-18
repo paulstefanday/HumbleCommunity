@@ -278,12 +278,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 20px; }
 
 #view.ng-enter {
-  -webkit-animation: 1.5s fadeInDown;
-  animation: 1.5s fadeInDown; }
+  -webkit-animation: 1.5s zoomIn;
+  animation: 1.5s zoomIn; }
 
 #view.ng-leave {
-  -webkit-animation: 1s fadeOutDown;
-  animation: 1s fadeOutDown;
+  -webkit-animation: 1s fadeOut;
+  animation: 1s fadeOut;
   position: absolute;
   top: 0;
   left: 0;
