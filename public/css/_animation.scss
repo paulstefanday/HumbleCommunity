@@ -1,7 +1,6 @@
 .repeat-animation.ng-enter-stagger,
 .repeat-animation.ng-leave-stagger,
 .repeat-animation.ng-move-stagger {
-  /* 200ms will be applied between each sucessive enter operation */ 
   -webkit-transition-delay:0.2s;
   transition-delay:0.2s;
 }
@@ -18,7 +17,6 @@
 .repeat-animation.ng-move {
   -webkit-transition:0.5s linear all;
   transition:0.5s linear all;
-
   opacity:0;
   line-height:0;
 }
@@ -32,8 +30,8 @@
 
 
 #view.ng-enter {
-  -webkit-animation:2s zoomIn;
-  animation:2s zoomIn;
+  -webkit-animation:1.5s fadeInDown;
+  animation:1.5s fadeInDown;
 }
 
 

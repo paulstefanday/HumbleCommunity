@@ -6,8 +6,8 @@
    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title>Compassionate Careers</title>
   <link href="favicon.png" rel="shortcut icon">
-  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600' rel='stylesheet' type='text/css'> -->
-  <link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:200,500,800' rel='stylesheet' type='text/css'>
   <link href="/bower_components/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="/bower_components/animate.css/animate.min.css" rel="stylesheet">

@@ -1,6 +1,8 @@
 * {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: 0.8s ease-out all;
+  transition: 0.8s ease-out all; }
 
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
@@ -13,8 +15,10 @@
 .clearfix:after {
   clear: both; }
 
-* {
-  font-family: 'Raleway', Calibri, Arial, sans-serif; }
+p, a {
+  font-family: Arial;
+  font-size: 15px;
+  letter-spacing: 0.04em; }
 
 .shadow, input, .btn, .btn-primary {
   -moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2) !important;
@@ -26,7 +30,7 @@ input {
 
 .btn, .btn-primary {
   font-weight: 400;
-  background-color: #22B3F2 !important;
+  background-color: #2CB2EC !important;
   border: 0px solid #fff !important; }
 
 body {
@@ -34,26 +38,35 @@ body {
   color: #383a3c;
   font-weight: 400;
   font-size: 1em;
-  line-height: 1.25; }
+  line-height: 1.35; }
 
-.bg-blue {
-  background-color: #1474BA !important; }
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #fff;
+  opacity: 0.3; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  opacity: 0.3; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  opacity: 0.3; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #fff;
+  opacity: 0.3; }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', Calibri, Arial, sans-serif;
   font-weight: bold;
   text-transform: uppercase; }
 
 .text-muted {
   color: #90939a; }
-
-.container {
-  width: 100%; }
-
-.panel-default > .panel-heading {
-  font-size: 85%;
-  font-weight: bold;
-  color: #444;
-  text-transform: uppercase; }
 
 .center-form {
   max-width: 330px;
@@ -247,7 +260,6 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1; } }
 
 .repeat-animation.ng-enter-stagger, .repeat-animation.ng-leave-stagger, .repeat-animation.ng-move-stagger {
-  /* 200ms will be applied between each sucessive enter operation */
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s; }
 
@@ -266,8 +278,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 20px; }
 
 #view.ng-enter {
-  -webkit-animation: 2s zoomIn;
-  animation: 2s zoomIn; }
+  -webkit-animation: 1.5s fadeInDown;
+  animation: 1.5s fadeInDown; }
 
 #view.ng-leave {
   -webkit-animation: 1s fadeOutDown;
@@ -292,13 +304,17 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   right: 0;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  -webkit-overflow-scrolling: touch; }
+  #view h1, #view h2, #view h3, #view h4 {
+    color: #fff !important; }
 
 .view {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; }
 
 .view-white {
   position: absolute;
@@ -309,7 +325,11 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
   overflow-x: hidden;
   overflow-y: auto;
-  z-index: 10000000; }
+  z-index: 10000000;
+  -webkit-overflow-scrolling: touch; }
+  .view-white .container {
+    margin-top: 6%;
+    margin-bottom: 6%; }
 
 .view-close {
   position: fixed;
@@ -318,9 +338,25 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 40px;
   margin: 8px 15px;
   cursor: pointer;
-  z-index: 100000; }
+  z-index: 100000;
+  color: #fff; }
+
+@media only screen and (max-width: 768px) {
+  .view-white .container {
+    margin-top: 20px;
+    margin-bottom: 20px; } }
+
+.padd-lg {
+  margin-top: 40px;
+  margin-bottom: 40px; }
 
 .blur {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -ms-filter: blur(2px);
+  -o-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.3;
   -webkit-transition: 1s linear all;
   transition: 1s linear all; }
 
@@ -332,9 +368,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 8px 18px;
   cursor: pointer;
   z-index: 1000000;
-  color: #fff;
-  -webkit-transition: 0.8s ease-out all;
-  transition: 0.8s ease-out all; }
+  color: #fff; }
   #nav-toggle.ion-ios7-close-outline {
     left: 300px; }
 
@@ -347,6 +381,9 @@ h1, h2, h3, h4, h5, h6 {
   animation: 1s fadeOutLeft; }
 
 #nav-menu {
+  -moz-box-shadow: 0px 2px 14px 7px rgba(0, 0, 0, 0.2) !important;
+  -webkit-box-shadow: 0px 2px 14px 7px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0px 2px 14px 7px rgba(0, 0, 0, 0.2) !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -354,20 +391,33 @@ h1, h2, h3, h4, h5, h6 {
   width: 300px;
   font-size: 18px;
   background: #22B3F2;
+  background: #8ad4ff;
+  background: -moz-linear-gradient(-45deg, #8ad4ff 0%, #0099ff 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #8ad4ff), color-stop(100%, #0099ff));
+  background: -webkit-linear-gradient(-45deg, #8ad4ff 0%, #0099ff 100%);
+  background: -o-linear-gradient(-45deg, #8ad4ff 0%, #0099ff 100%);
+  background: -ms-linear-gradient(-45deg, #8ad4ff 0%, #0099ff 100%);
+  background: linear-gradient(135deg, #8ad4ff 0%, #0099ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ad4ff', endColorstr='#0099ff', GradientType=1 );
   z-index: 10000;
   padding: 0; }
   #nav-menu li {
     width: 100%;
     list-style: none; }
-  #nav-menu li > a {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  #nav-menu a {
     width: 100%;
     padding: 20px;
-    color: #fff;
-    float: left; }
-    #nav-menu li > a:hover {
+    color: #96E6FD;
+    float: left;
+    text-transform: uppercase;
+    font-family: 'Raleway', Calibri, Arial, sans-serif !important;
+    font-weight: 500 !important;
+    background-color: rgba(0, 161, 231, 0.24);
+    margin-bottom: 1px; }
+    #nav-menu a:hover {
       text-decoration: none;
-      background: rgba(255, 255, 255, 0.2); }
+      color: #fff;
+      padding: 20px 20px 20px 30px; }
 
 .large-header {
   position: relative;
@@ -403,6 +453,22 @@ h1, h2, h3, h4, h5, h6 {
 @media only screen and (max-width: 768px) {
   .main-title {
     font-size: 3em; } }
+
+.bigsearch {
+  width: 100%;
+  padding: 20px 0;
+  background: transparent;
+  border-bottom: 3px solid #fff !important;
+  font-size: 60px;
+  color: #fff;
+  font-family: 'Raleway', Calibri, Arial, sans-serif !important;
+  font-weight: 200 !important; }
+
+.bigfind {
+  font-size: 80px;
+  color: #fff;
+  background: transparent;
+  border: none; }
 
 /*! 
  * angular-loading-bar v0.5.0
