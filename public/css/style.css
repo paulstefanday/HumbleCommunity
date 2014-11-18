@@ -266,8 +266,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 20px; }
 
 #view.ng-enter {
-  -webkit-animation: 2s zoomInDown;
-  animation: 2s zoomInDown; }
+  -webkit-animation: 2s zoomIn;
+  animation: 2s zoomIn; }
 
 #view.ng-leave {
   -webkit-animation: 1s fadeOutDown;
@@ -287,9 +287,29 @@ h1, h2, h3, h4, h5, h6 {
   animation: 1s bounceOutDown;
   display: block !important; }
 
+#view {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%; }
+
 .view {
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto; }
+
+.view-white {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 10000000; }
 
 .view-close {
   position: fixed;

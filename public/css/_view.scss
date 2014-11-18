@@ -1,16 +1,32 @@
 #view {
-
+	position:absolute;
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
 }
 
 .view {
 	// position:absolute;
 	// top:0;
 	// right:0;
-	// width:100%;
-	// height:100%;
+	width:100%;
+	height:100%;
 	// background-color:#fff;
 	overflow-x: hidden;
 	overflow-y: auto;  
+}
+
+.view-white {
+	position:absolute;
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+	background-color:#fff;
+	overflow-x: hidden;
+	overflow-y: auto; 
+	z-index: 10000000	
 }
 
 .view-close {

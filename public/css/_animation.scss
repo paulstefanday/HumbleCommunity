@@ -32,10 +32,10 @@
 
 
 #view.ng-enter {
-  -webkit-animation:2s zoomInDown;
-  animation:2s zoomInDown;
-
+  -webkit-animation:2s zoomIn;
+  animation:2s zoomIn;
 }
+
 
 #view.ng-leave {
     -webkit-animation:1s fadeOutDown;
