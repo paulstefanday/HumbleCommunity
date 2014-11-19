@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title>Compassionate Careers</title>
+  <title>Compassionate Community</title>
   <link href="favicon.png" rel="shortcut icon">
   <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:200,500,800' rel='stylesheet' type='text/css'>
