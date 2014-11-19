@@ -14,7 +14,7 @@
   <link href="/bower_components/angular-motion/dist/angular-motion.min.css" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
 </head>
-<body  >
+<body>
 
   <!-- Navbar -->
   <nav-bar></nav-bar>

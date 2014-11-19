@@ -1,3 +1,10 @@
+.btn, .btn-primary {
+  font-weight: 400;
+  background-color: $maincolor !important;
+  border:0px solid #fff !important;
+    @extend .shadow;
+}
+
 
 .btn [class^='ion-'] {
   margin-right: 5px;

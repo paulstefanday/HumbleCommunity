@@ -20,14 +20,6 @@
   -webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2) !important;
   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2) !important; }
 
-input {
-  border: 0px solid #fff !important; }
-
-.btn, .btn-primary {
-  font-weight: 400;
-  background-color: #2CB2EC !important;
-  border: 0px solid #fff !important; }
-
 body {
   background: #1474BA;
   color: #383a3c;
@@ -51,8 +43,48 @@ body {
   outline: none;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
 
+.repeat-animation.ng-enter-stagger, .repeat-animation.ng-leave-stagger, .repeat-animation.ng-move-stagger {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s; }
+
+.repeat-animation.ng-enter, .repeat-animation.ng-leave, .repeat-animation.ng-move {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all; }
+
+.repeat-animation.ng-leave.ng-leave-active, .repeat-animation.ng-enter, .repeat-animation.ng-move {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  opacity: 0;
+  line-height: 0; }
+
+.repeat-animation.ng-leave, .repeat-animation.ng-move.ng-move-active, .repeat-animation.ng-enter.ng-enter-active {
+  opacity: 1;
+  line-height: 20px; }
+
+#view.ng-enter {
+  -webkit-animation: 1.5s zoomIn;
+  animation: 1.5s zoomIn; }
+
+#view.ng-leave {
+  -webkit-animation: 1s fadeOut;
+  animation: 1s fadeOut;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.ng-hide-remove {
+  -webkit-animation: 1s zoomIn;
+  animation: 1s zoomIn; }
+
+.ng-hide-add {
+  -webkit-animation: 1s bounceOutDown;
+  animation: 1s bounceOutDown;
+  display: block !important; }
+
 /*********************
-* Animations
+* Old Animations
 *********************/
 .fadeZoom.ng-enter {
   -webkit-animation-duration: 0.6s, 0.2s;
@@ -102,46 +134,6 @@ body {
   50% {
     opacity: 1; } }
 
-.repeat-animation.ng-enter-stagger, .repeat-animation.ng-leave-stagger, .repeat-animation.ng-move-stagger {
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s; }
-
-.repeat-animation.ng-enter, .repeat-animation.ng-leave, .repeat-animation.ng-move {
-  -webkit-transition: 0.5s linear all;
-  transition: 0.5s linear all; }
-
-.repeat-animation.ng-leave.ng-leave-active, .repeat-animation.ng-enter, .repeat-animation.ng-move {
-  -webkit-transition: 0.5s linear all;
-  transition: 0.5s linear all;
-  opacity: 0;
-  line-height: 0; }
-
-.repeat-animation.ng-leave, .repeat-animation.ng-move.ng-move-active, .repeat-animation.ng-enter.ng-enter-active {
-  opacity: 1;
-  line-height: 20px; }
-
-#view.ng-enter {
-  -webkit-animation: 1.5s zoomIn;
-  animation: 1.5s zoomIn; }
-
-#view.ng-leave {
-  -webkit-animation: 1s fadeOut;
-  animation: 1s fadeOut;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-
-.ng-hide-remove {
-  -webkit-animation: 1s zoomIn;
-  animation: 1s zoomIn; }
-
-.ng-hide-add {
-  -webkit-animation: 1s bounceOutDown;
-  animation: 1s bounceOutDown;
-  display: block !important; }
-
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #fff;
@@ -161,6 +153,9 @@ body {
   /* Internet Explorer 10+ */
   color: #fff;
   opacity: 0.3; }
+
+input {
+  border: 0px solid #fff !important; }
 
 .center-form {
   max-width: 330px;
@@ -234,6 +229,11 @@ a {
 
 .text-muted {
   color: #7CBBD7; }
+
+.btn, .btn-primary {
+  font-weight: 400;
+  background-color: #2CB2EC !important;
+  border: 0px solid #fff !important; }
 
 .btn [class^='ion-'] {
   margin-right: 5px; }
@@ -435,7 +435,6 @@ a {
 .main-title {
   text-align: center;
   text-transform: uppercase;
-  font-size: 4.2em;
   letter-spacing: 0.1em;
   color: #f9f1e9; }
 
