@@ -241,6 +241,10 @@ a {
 .btn .fa {
   margin-right: 5px; }
 
+.btn-xlg {
+  padding: 20px 36px !important;
+  text-transform: uppercase; }
+
 /*********************
 * Social Buttons
 *********************/
@@ -436,7 +440,8 @@ a {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #f9f1e9; }
+  color: #f9f1e9;
+  font-size: 40px; }
 
 .main-title .thin {
   font-weight: 200; }
@@ -448,13 +453,9 @@ a {
   margin-top: -70px;
   text-align: center; }
 
-.btn-xlg {
-  padding: 20px 36px !important;
-  text-transform: uppercase; }
-
 @media only screen and (max-width: 768px) {
   .main-title {
-    font-size: 3em; } }
+    font-size: 25px; } }
 
 .bigsearch {
   width: 100%;
