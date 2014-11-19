@@ -157,6 +157,19 @@ body {
 input {
   border: 0px solid #fff !important; }
 
+.datepicker.dropdown-menu {
+  width: 250px;
+  height: 270px; }
+  .datepicker.dropdown-menu button {
+    outline: none;
+    border: 0px; }
+  .datepicker.dropdown-menu tbody {
+    height: 180px; }
+  .datepicker.dropdown-menu tbody button {
+    padding: 6px; }
+  .datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+    height: 65px; }
+
 .center-form {
   max-width: 330px;
   width: 100%;
