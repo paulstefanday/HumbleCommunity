@@ -81,6 +81,10 @@ angular.module('MyApp', ['ngAnimate', 'ngResource', 'ngMessages', 'ui.router', '
   }).run(["$rootScope", "$location", 
     function ($rootScope, $location) {
         $rootScope.nav = false;
+
+        $rootScope.hideNav = function() {
+            $rootScope.nav = false;
+        }
 }] );
 
 

@@ -19,6 +19,18 @@
   text-transform:uppercase
 }
 
+.search-btn {
+  position:fixed;
+  top:0;
+  right:0;
+  font-size:40px;
+  margin:8px 18px;
+  cursor: pointer;
+  z-index: 1000000;
+  color:#fff;
+}
+
+
 /*********************
 * Social Buttons
 *********************/

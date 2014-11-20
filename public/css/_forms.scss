@@ -22,6 +22,12 @@ input {
   @extend .shadow;
 }
 
+.input-xlg {
+    padding:20px 16px !important;
+  text-transform:uppercase;
+  height: 60px;
+}
+
 .datepicker.dropdown-menu {
   width: 250px;
   height: 270px;

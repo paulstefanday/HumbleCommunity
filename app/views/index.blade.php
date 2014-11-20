@@ -20,7 +20,7 @@
   <nav-bar></nav-bar>
    
   <!-- Content -->
-  <div ui-view id="view" ng-class="{ 'blur' : nav }"></div>
+  <div ng-click="hideNav()" ui-view id="view" ng-class="{ 'blur' : nav }"></div>
 
   <!-- required -->
   <script src="/bower_components/angular/angular.min.js"></script>

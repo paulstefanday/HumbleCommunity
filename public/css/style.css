@@ -157,6 +157,11 @@ body {
 input {
   border: 0px solid #fff !important; }
 
+.input-xlg {
+  padding: 20px 16px !important;
+  text-transform: uppercase;
+  height: 60px; }
+
 .datepicker.dropdown-menu {
   width: 250px;
   height: 270px; }
@@ -257,6 +262,16 @@ a {
 .btn-xlg {
   padding: 20px 36px !important;
   text-transform: uppercase; }
+
+.search-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 40px;
+  margin: 8px 18px;
+  cursor: pointer;
+  z-index: 1000000;
+  color: #fff; }
 
 /*********************
 * Social Buttons
