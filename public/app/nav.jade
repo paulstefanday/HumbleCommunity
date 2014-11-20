@@ -3,12 +3,12 @@
   ul#nav-menu(ng-show="nav")
     li 
       a(href="" ng-click="goTo('home')") Home 
-    li
-      a(href="" ng-click="goTo('jobs')") Jobs
-    li 
-      a(href="" ng-click="goTo('signup')") Events
-    li 
-      a(href="" ng-click="goTo('home')") Campaigns
+    //- li
+    //-   a(href="" ng-click="goTo('jobs')") Jobs
+    //- li 
+    //-   a(href="" ng-click="goTo('signup')") Events
+    //- li 
+    //-   a(href="" ng-click="goTo('home')") Campaigns
     li( ng-if="isAuthenticated()" )
       a(href="" ng-click="goTo('admin')") Admin
     li( ng-if="!isAuthenticated()" )

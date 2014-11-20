@@ -6,7 +6,7 @@ function homePage() {
       restrict: 'E',
       transclude: true,
       replace: true,
-      scope: true,
+      scope: {},
       controller : controller,
       link: link,
       controllerAs: 'vm',
@@ -27,6 +27,10 @@ function homePage() {
 
         vm.showSearch = function() {
             vm.search = true;
+        }
+
+        vm.joinUp = function() {
+            console.log(vm.email);
         }
 
   }
