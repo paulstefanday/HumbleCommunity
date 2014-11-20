@@ -1,11 +1,11 @@
 #search
 	a.view-close.ion-ios7-close-outline(ng-click="vm.back()")
 	.container
-		.row.padd-lg
+		#search-field.row.padd-lg
 			.col-sm-10
-				input(type="text" placeholder="Find your passion here...").bigsearch
+				input.noshadow(type="text" placeholder="Find your passion here...")
 			.col-sm-2
-				button.ion-ios7-search.bigfind
+				button.ion-ios7-search
 
 		.row
 			.col-sm-4
