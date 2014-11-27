@@ -36,6 +36,7 @@
   <script src="/js/home/TweenLite.min.js"></script>
   <script src="/js/home/EasePack.min.js"></script>
   <script src="/js/home/rAF.js"></script>
+  <script src="/js/templates.js"></script>
   <!-- app -->
   <script src="/app.js"></script>
   <script src="/js/app.js"></script>
